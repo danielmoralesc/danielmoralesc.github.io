@@ -90,6 +90,31 @@
   </div>
 </section>
 
+{% if b.about.size > 0 or b.researchLines.size > 0 %}
+<section class="home-about" aria-labelledby="home-about-title">
+  <div class="home-wrap home-about__grid">
+    {% if b.about.size > 0 %}
+    <div class="home-about__text">
+      <h2 id="home-about-title">About</h2>
+      {% for paragraph in b.about %}<p>{{ paragraph }}</p>{% endfor %}
+    </div>
+    {% endif %}
+    {% if b.researchLines.size > 0 %}
+    <div class="home-about__lines">
+      <h2>Research lines</h2>
+      {% for line in b.researchLines %}
+      <article class="home-line">
+        <h3 class="home-line__title">{% if line.icon %}<i class="{{ line.icon }}" aria-hidden="true"></i>{% endif %}{{ line.title }}</h3>
+        <p class="home-line__desc">{{ line.description }}</p>
+        {% if line.keywords.size > 0 %}<ul class="home-line__tags">{% for k in line.keywords %}<li>{{ k }}</li>{% endfor %}</ul>{% endif %}
+      </article>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</section>
+{% endif %}
+
 <div class="home-wrap home-columns">
   {% if r.publications.size > 0 %}
   <section class="home-pubs" aria-labelledby="home-pubs-title">
@@ -97,7 +122,7 @@
     {% for pub in r.publications limit: 3 %}
     {% assign display_title = pub.originalTitle | default: pub.title %}
     <article class="home-pub">
-      <p class="home-pub__year">{% if pub.status == "forthcoming" %}Forthcoming{% else %}{{ pub.year }}{% endif %}</p>
+      <p class="home-pub__year">{{ pub.year }}{% if pub.status == "forthcoming" %}<span class="home-pub__status">forthcoming</span>{% endif %}</p>
       <div>
         <h3 class="home-pub__title">{% if pub.doi %}<a href="https://doi.org/{{ pub.doi }}">{{ display_title }}</a>{% elsif pub.url %}<a href="{{ pub.url }}">{{ display_title }}</a>{% else %}{{ display_title }}{% endif %}</h3>
         {% if pub.originalTitle and pub.title != pub.originalTitle %}<p class="home-pub__translation">[{{ pub.title }}]</p>{% endif %}
