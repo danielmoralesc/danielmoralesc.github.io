@@ -1,17 +1,31 @@
 ---
-published: false # disabled until there is content; remove this line to re-enable
 layout: archive
-title: "Talks and presentations"
+title: "Talks"
 permalink: /talks/
 author_profile: true
 ---
-
-{% if site.talkmap_link == true %}
-
-<p style="text-decoration:underline;"><a href="/talkmap.html">See a map of all the places I've given a talk!</a></p>
-
+{% comment %}
+  Rendered from _data/resume.json (presentations[]): upcoming first, then grouped by year (JSON order, newest first).
+  The demo _talks collection is kept but not output (see _config.yml).
+{% endcomment %}
+{% include base_path %}
+{% assign talks = site.data.resume.presentations %}
+{% if talks.size > 0 %}
+{% assign upcoming = talks | where: "status", "upcoming" %}
+{% if upcoming.size > 0 %}
+<h2 class="resume-year">Upcoming</h2>
+<ul class="cv-list resume-list">
+  {% for talk in upcoming %}{% include resume/talk-item.html item=talk %}{% endfor %}
+</ul>
 {% endif %}
-
-{% for post in site.talks reversed %}
-  {% include archive-single-talk.html %}
+{% assign past = talks | where_exp: "t", "t.status != 'upcoming'" %}
+{% assign groups = past | group_by_exp: "t", "t.date | slice: 0, 4" %}
+{% for group in groups %}
+<h2 class="resume-year">{{ group.name }}</h2>
+<ul class="cv-list resume-list">
+  {% for talk in group.items %}{% include resume/talk-item.html item=talk %}{% endfor %}
+</ul>
 {% endfor %}
+{% else %}
+<p>Coming soon.</p>
+{% endif %}

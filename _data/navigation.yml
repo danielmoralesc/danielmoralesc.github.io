@@ -10,6 +10,8 @@
 main:
   - title: "Publications"
     url: /publications/
+  - title: "Talks"
+    url: /talks/
   - title: "Teaching"
     url: /teaching/
   - title: "Media"
@@ -19,8 +21,6 @@ main:
   # Disabled until there is content. To re-enable a section, uncomment it here,
   # remove `published: false` from its page in _pages/ and, for talks/portfolio,
   # set the collection back to `output: true` in _config.yml.
-  # - title: "Talks"
-  #   url: /talks/
   # - title: "Portfolio"
   #   url: /portfolio/
   # - title: "Blog Posts"

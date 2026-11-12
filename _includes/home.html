@@ -153,6 +153,22 @@
     </section>
     {% endif %}
 
+    {% if r.presentations.size > 0 %}
+    <section aria-labelledby="home-talks-title">
+      <h2 id="home-talks-title">Talks</h2>
+      <ul class="home-list">
+        {% for talk in r.presentations limit: 3 %}
+        {%- if talk.date.size > 7 -%}{%- assign talk_when = talk.date | date: "%-d %b %Y" -%}{%- else -%}{%- capture talk_when -%}{{ talk.date }}-01{%- endcapture -%}{%- assign talk_when = talk_when | date: "%b %Y" -%}{%- endif %}
+        <li>
+          <p class="home-list__source"><i class="fas fa-microphone-lines" aria-hidden="true"></i><span class="home-list__outlet">{{ talk.location | split: "," | first }}</span><span>{{ talk_when }}</span>{% if talk.status == "upcoming" %}<span class="cv-upcoming">Upcoming</span>{% endif %}</p>
+          <p class="home-list__title"><a href="{{ base_path }}/talks/#{{ talk.id }}">{{ talk.originalTitle | default: talk.title }}</a></p>
+        </li>
+        {% endfor %}
+      </ul>
+      {% if r.presentations.size > 3 %}<p class="home-more"><a href="{{ base_path }}/talks/">All talks</a></p>{% endif %}
+    </section>
+    {% endif %}
+
     {% assign lecturing = r.teaching | where: "type", "lecturer" %}
     {% if lecturing.size > 0 %}
     <section aria-labelledby="home-teaching-title">
