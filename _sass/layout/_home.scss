@@ -50,18 +50,18 @@
   border: 1px solid var(--global-border-color);
 }
 
-.home-hero__title {
-  margin: 0 0 1.1rem;
-  font-size: clamp(2.2rem, 4.4vw, 3.9rem);
-  line-height: 1.06;
+.home-hero__name {
+  margin: 0 0 1rem;
+  font-size: clamp(2rem, 3.2vw, 2.75rem);
+  line-height: 1.1;
   letter-spacing: -0.01em;
 }
 
-.home-hero__lead {
-  max-width: 45rem;
+.home-hero__intro {
+  max-width: 42rem;
   margin-bottom: 1.6rem !important;
-  color: var(--global-text-color-light);
   font-size: 1.2rem;
+  line-height: 1.6;
 }
 
 .home-profiles {
@@ -91,52 +91,6 @@
 
   i {
     font-size: 1.15rem;
-  }
-}
-
-/* Research period band */
-.home-period {
-  padding-block: 0 3.5rem;
-}
-
-.home-period__label {
-  margin-bottom: 0.6rem !important;
-  font-family: $header-font-family;
-  font-style: italic;
-}
-
-.home-period__band {
-  height: 10px;
-  background: linear-gradient(90deg, var(--global-accent-secondary), var(--global-base-color));
-  border-radius: 5px;
-}
-
-.home-period__ticks {
-  position: relative;
-  height: 1.5rem;
-  margin-top: 0.4rem;
-  color: var(--global-text-color-light);
-  font-size: 0.8rem;
-  font-variant-numeric: tabular-nums;
-}
-
-.home-period__tick {
-  position: absolute;
-  top: 0;
-  transform: translateX(-50%);
-
-  &:first-child {
-    transform: none;
-  }
-
-  &--end {
-    transform: translateX(-100%);
-  }
-}
-
-@media (max-width: 600px) {
-  .home-period__tick--minor {
-    display: none;
   }
 }
 

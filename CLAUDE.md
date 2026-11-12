@@ -64,7 +64,7 @@ Convenciones:
 - Opcional `orcidSync: false` para excluir una publicación de ORCID.
 - `researchProjects[]`: `code, programme, funder, title, role, startDate, endDate, institution`.
 - `basics.citationName`, `basics.supervisors[]` (sin emails).
-- `basics.researchPeriod`: `{start, end, label}` (15 sep 2026) → banda 1840–2024 de la portada; la home quita `, start–end` del `headline` para no repetirlo.
+- `basics.about[]` (12 nov 2026): párrafos en primera persona; el primero va en el hero de la portada (bajo el nombre) y el resto en la sección About. `basics.researchLines[]`: `{title, icon, description, keywords}`. Se retiró `basics.researchPeriod` y su banda 1840–2024 al ampliar el enfoque más allá de la minería.
 - `press[]` y `teaching[]` ya en uso; `placeholder: true` marca datos de ejemplo (el generador del README se niega a publicar con ellos).
 
 ## 7. Revisiones pendientes del usuario sobre el JSON
