@@ -3,6 +3,7 @@
   The same data is published verbatim at /resume.json and used to generate
   the GitHub profile README and to sync ORCID. Edit the JSON, not this file.
 {% endcomment %}
+{% include base_path %}
 {% assign cv = site.data.resume %}
 {% assign present = "present" %}
 
@@ -22,6 +23,8 @@
       <div class="cv-contact-item"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> {{ cv.basics.location.city }}{% if cv.basics.location.region %}, {{ cv.basics.location.region }}{% endif %}{% if cv.basics.location.countryCode %}, {{ cv.basics.location.countryCode }}{% endif %}</div>
       {% endif %}
     </div>
+
+    <p class="cv-download"><a class="btn btn--primary" href="{{ base_path }}/files/cv.pdf" download><i class="fas fa-file-pdf" aria-hidden="true"></i> Download PDF</a></p>
 
     {% if cv.basics.profiles.size > 0 %}
     <div class="cv-profiles">

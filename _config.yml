@@ -184,6 +184,7 @@ exclude:
   - Gruntfile.js
   - gulpfile.js
   - LICENSE
+  - cv # Typst source of the PDF CV; only files/cv.pdf is published
   - local
   - log
   - node_modules
