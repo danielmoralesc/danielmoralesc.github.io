@@ -1,7 +1,7 @@
 {
   "meta": {
     "schemaVersion": "1.0.0",
-    "lastModified": "2026-11-12",
+    "lastModified": "2026-11-13",
     "language": "en-GB",
     "canonicalUrl": "https://danielmoralesc.github.io/resume.json"
   },
@@ -88,6 +88,11 @@
         "network": "Scopus",
         "username": "57220117004",
         "url": "https://www.scopus.com/authid/detail.uri?authorId=57220117004"
+      },
+      {
+        "network": "LinkedIn",
+        "username": "daniel-morales-campos-a92576414",
+        "url": "https://www.linkedin.com/in/daniel-morales-campos-a92576414/"
       }
     ]
   },

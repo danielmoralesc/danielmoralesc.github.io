@@ -48,7 +48,7 @@
 #set par(justify: true, leading: 0.58em, spacing: 0.9em)
 #set page(
   paper: "a4",
-  margin: (x: 2.1cm, top: 2cm, bottom: 2.2cm),
+  margin: (x: 2.1cm, top: 1.8cm, bottom: 2cm),
   footer: context {
     set text(8.5pt, fill: muted)
     [#b.name — Curriculum Vitae · last updated #day-month-year(data.meta.lastModified) #h(1fr) #counter(page).display("1 / 1", both: true)]
@@ -57,7 +57,7 @@
 #show link: set text(fill: accent)
 
 #let section(title) = {
-  v(0.6em)
+  v(0.45em)
   block(below: 0.7em, sticky: true)[
     #text(12.5pt, weight: "bold", fill: accent, smallcaps(title))
     #v(-0.55em)
@@ -86,7 +86,9 @@
     #loc
     #h(0.5em)·#h(0.5em) #link("mailto:" + b.email, b.email)
     #h(0.5em)·#h(0.5em) #link(b.website, b.website.replace("https://", ""))
-    #for p in b.profiles [ #h(0.5em)·#h(0.5em) #link(p.url, p.network)]
+    #if b.profiles.len() > 0 [
+      \ #b.profiles.map(p => link(p.url, p.network)).join[#h(0.5em)·#h(0.5em)]
+    ]
   ]
 ]
 
