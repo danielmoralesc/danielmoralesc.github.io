@@ -29,6 +29,7 @@
           {% endcase %}
         <li><a href="{{ profile.url }}"><i class="{{ icon }}" aria-hidden="true"></i>{{ profile.network }}</a></li>
         {% endfor %}
+        <li><a href="{{ base_path }}/files/cv.pdf"><i class="fas fa-file-pdf" aria-hidden="true"></i>PDF version</a></li>
         {% if b.email %}<li><a href="mailto:{{ b.email }}"><i class="fas fa-envelope" aria-hidden="true"></i>{{ b.email }}</a></li>{% endif %}
       </ul>
     </div>

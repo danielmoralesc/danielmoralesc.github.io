@@ -258,8 +258,5 @@
 .cv-press-links { display: flex; flex-direction: column; gap: 0.2rem; margin-top: 0.5rem; font-size: 0.85rem; }
 .cv-title-translation { font-style: italic; opacity: 0.85; }
 
-/* "Download PDF" button (files/cv.pdf, built by the Pages workflow) */
-.cv-download { margin: 0.75rem 0 0; }
-.cv-download .btn { text-decoration: none; }
-.cv-download .btn i { margin-right: 0.35rem; }
-@media print { .cv-download { display: none; } }
+/* "PDF version" link in the profiles row (files/cv.pdf, built by the Pages workflow) */
+@media print { .cv-profile-pdf { display: none; } }
