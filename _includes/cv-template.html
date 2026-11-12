@@ -24,8 +24,6 @@
       {% endif %}
     </div>
 
-    <p class="cv-download"><a class="btn btn--primary" href="{{ base_path }}/files/cv.pdf" download><i class="fas fa-file-pdf" aria-hidden="true"></i> Download PDF</a></p>
-
     {% if cv.basics.profiles.size > 0 %}
     <div class="cv-profiles">
       {% for profile in cv.basics.profiles %}
@@ -40,6 +38,7 @@
         {% endcase %}
       <div class="cv-profile-item"><i class="{{ icon }}" aria-hidden="true"></i> <a href="{{ profile.url }}">{{ profile.network }}</a></div>
       {% endfor %}
+      <div class="cv-profile-item cv-profile-pdf"><i class="fas fa-file-pdf" aria-hidden="true"></i> <a href="{{ base_path }}/files/cv.pdf">PDF version</a></div>
     </div>
     {% endif %}
   </div>
