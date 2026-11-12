@@ -1,0 +1,10 @@
+{%- comment -%} One teaching[] entry from resume.json. Usage: {% include resume/teaching-item.html item=item %} {%- endcomment -%}
+{%- assign t = include.item -%}
+<li class="cv-item">
+  <div class="cv-item-header">
+    <div class="cv-item-title">{% if t.url %}<a href="{{ t.url }}">{{ t.course }}</a>{% else %}{{ t.course }}{% endif %}{% if t.placeholder %} <span class="cv-placeholder">Example</span>{% endif %}</div>
+    <div class="cv-item-date">{% include cv-date-range.html start=t.startDate end=t.endDate %}</div>
+  </div>
+  <div class="cv-item-subtitle">{% if t.role %}{{ t.role }} · {% endif %}{% if t.programme %}{{ t.programme }}, {% endif %}{{ t.institution }}{% if t.semesters > 1 %} · {{ t.semesters }} semesters{% endif %}</div>
+  {% if t.description %}<div class="cv-item-summary">{{ t.description }}</div>{% endif %}
+</li>

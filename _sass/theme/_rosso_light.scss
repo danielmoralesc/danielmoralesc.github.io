@@ -1,0 +1,52 @@
+/* ==========================================================================
+    ROSSO THEME - LIGHT VERSION
+    Rosso Roma (PANTONE 202 C, #8E1F2F) with copper as secondary colour.
+    Text colours meet WCAG AA on the page background.
+    ========================================================================== */
+
+/* Compile-time colours (kept identical in the dark file) */
+$primary-color              : #8e1f2f;
+$gray                       : #625858;
+$dark-gray                  : #231d1e;
+$darker-gray                : #231d1e;
+$light-gray                 : #625858;
+$lighter-gray               : #e3dcdb;
+
+/* Color codes used for the site */
+$danger-color               : #b3261e;
+$info-color                 : #8e1f2f;
+$notice-color               : #625858;
+$success-color              : #2e7d4f;
+$warning-color              : #9c5b3b;
+
+/* Other basic settings for the template */
+$border-radius              : 3px;
+$box-shadow                 : 0 1px 1px rgba(35, 29, 30, 0.12);
+$global-transition          : color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+$masthead-height            : 70px;
+$navicon-width              : 28px;
+$navicon-height             : 4px;
+$sidebar-link-max-width     : 250px;
+$sidebar-screen-min-width   : 1024px;
+
+/* Light theme for the site */
+:root {
+    --global-base-color                 : #8e1f2f;
+    --global-bg-color                   : #faf9f8;
+    --global-footer-bg-color            : #f4eeed;
+    --global-border-color               : #e3dcdb;
+    --global-dark-border-color          : #c9bdbc;
+    --global-code-background-color      : #f4eeed;
+    --global-code-text-color            : #231d1e;
+    --global-fig-caption-color          : #625858;
+    --global-link-color                 : #8e1f2f;
+    --global-link-color-hover           : #231d1e;
+    --global-link-color-visited         : #8e1f2f;
+    --global-masthead-link-color        : #231d1e;
+    --global-masthead-link-color-hover  : #8e1f2f;
+    --global-text-color                 : #231d1e;
+    --global-text-color-light           : #625858;
+    --global-thead-color                : #f4eeed;
+    --global-accent-secondary           : #9c5b3b;
+    --global-tint-color                 : #f4eeed;
+}

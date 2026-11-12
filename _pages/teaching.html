@@ -4,9 +4,13 @@ title: "Teaching"
 permalink: /teaching/
 author_profile: true
 ---
-
-{% include base_path %}
-
-{% for post in site.teaching reversed %}
-  {% include archive-single.html %}
-{% endfor %}
+{% comment %}
+  Rendered from _data/resume.json (teaching[]).
+  The demo _teaching collection is kept but not output (see _config.yml).
+{% endcomment %}
+{% assign items = site.data.resume.teaching %}
+{% if items.size > 0 %}
+{% include resume/teaching-groups.html items=items %}
+{% else %}
+<p>Coming soon.</p>
+{% endif %}

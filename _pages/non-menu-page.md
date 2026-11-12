@@ -1,4 +1,5 @@
 ---
+published: false # disabled until there is content; remove this line to re-enable
 permalink: /non-menu-page/
 title: "Page not in menu"
 author_profile: true

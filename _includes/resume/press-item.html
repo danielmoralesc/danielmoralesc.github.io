@@ -1,0 +1,17 @@
+{%- comment -%} One press[] entry from resume.json. Usage: {% include resume/press-item.html item=item %} {%- endcomment -%}
+{%- assign p = include.item -%}
+<li class="cv-item">
+  <div class="cv-item-header">
+    <div class="cv-item-title">{% if p.url %}<a href="{{ p.url }}">{{ p.title }}</a>{% else %}{{ p.title }}{% endif %}{% if p.placeholder %} <span class="cv-placeholder">Example</span>{% endif %}</div>
+    <div class="cv-item-date">{{ p.date | date: "%-d %b %Y" }}</div>
+  </div>
+  <div class="cv-item-subtitle"><em>{{ p.outlet }}</em>{% if p.section %} ({{ p.section }}){% endif %}{% if p.author %} · by {{ p.author }}{% endif %}{% if p.type %} · {{ p.type | capitalize }}{% endif %}{% if p.accessNote %} · {{ p.accessNote | capitalize }}{% endif %}</div>
+  {% if p.excerpt %}<blockquote class="cv-press-excerpt">{{ p.excerpt }}</blockquote>{% endif %}
+  {%- assign related = site.data.resume.publications | where: "id", p.relatedPublication | first -%}
+  {% if related or p.relatedUrls.size > 0 %}
+  <div class="cv-item-summary cv-press-links">
+    {% if related %}<span><i class="fas fa-book-open" aria-hidden="true"></i> Related publication: <a href="{{ site.baseurl }}/publications/#{{ related.id }}">{{ related.originalTitle | default: related.title }}</a> (<em>{{ related.venue.name }}</em>, {{ related.year }})</span>{% endif %}
+    {% for link in p.relatedUrls %}<span><i class="fas fa-link" aria-hidden="true"></i> <a href="{{ link.url }}">{{ link.label }}</a></span>{% endfor %}
+  </div>
+  {% endif %}
+</li>

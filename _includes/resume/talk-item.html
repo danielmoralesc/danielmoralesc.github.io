@@ -1,0 +1,22 @@
+{%- comment -%} One presentations[] entry from resume.json. Usage: {% include resume/talk-item.html item=talk %} {%- endcomment -%}
+{%- include base_path -%}
+{%- assign t = include.item -%}
+{%- assign talk_title = t.originalTitle | default: t.title -%}
+{%- if t.date.size > 7 -%}{%- assign talk_when = t.date | date: "%-d %b %Y" -%}{%- else -%}{%- capture talk_when -%}{{ t.date }}-01{%- endcapture -%}{%- assign talk_when = talk_when | date: "%b %Y" -%}{%- endif -%}
+<li class="cv-item" id="{{ t.id }}">
+  <div class="cv-item-header">
+    <div class="cv-item-title">{{ talk_title }}{% if t.status == "upcoming" %} <span class="cv-upcoming">Upcoming</span>{% endif %}</div>
+    <div class="cv-item-date">{{ talk_when }}</div>
+  </div>
+  {% if t.originalTitle and t.title != t.originalTitle %}<div class="cv-title-translation">[{{ t.title }}]</div>{% endif %}
+  <div class="cv-item-subtitle">{% if t.eventUrl %}<a href="{{ t.eventUrl }}">{{ t.event }}</a>{% else %}{{ t.event }}{% endif %}{% if t.location %} · {{ t.location }}{% endif %}</div>
+  {%- if t.note or t.relatedPublication %}
+  <div class="cv-item-summary">
+    {%- if t.note %}{{ t.note }}.{% endif %}
+    {%- if t.relatedPublication -%}
+      {%- assign rel = site.data.resume.publications | where: "id", t.relatedPublication | first -%}
+      {%- if rel %} Related publication: <a href="{{ base_path }}/publications/#{{ rel.id }}">{{ rel.originalTitle | default: rel.title }}</a> ({{ rel.venue.name }}{% if rel.status == "forthcoming" %}, forthcoming{% else %}, {{ rel.year }}{% endif %}).{% endif -%}
+    {%- endif %}
+  </div>
+  {%- endif %}
+</li>

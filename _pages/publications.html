@@ -4,33 +4,32 @@ title: "Publications"
 permalink: /publications/
 author_profile: true
 ---
+{% comment %}
+  Rendered from _data/resume.json (publications[]), grouped by year in JSON order.
+  The demo _publications collection is kept but not output (see _config.yml).
+{% endcomment %}
+{% assign resume = site.data.resume %}
+{% for profile in resume.basics.profiles %}{% if profile.network == "Google Scholar" %}
+<p class="wordwrap">You can also find my articles on <a href="{{ profile.url }}">my Google Scholar profile</a>.</p>
+{% endif %}{% endfor %}
 
-{% if site.author.googlescholar %}
-  <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
+{% assign forthcoming = resume.publications | where: "status", "forthcoming" %}
+{% if forthcoming.size > 0 %}
+<h2 class="resume-year">Forthcoming</h2>
+<ul class="cv-publications resume-pubs">
+  {% for pub in forthcoming %}
+  <li class="cv-publication" id="{{ pub.id }}">{% include resume/publication.html pub=pub %}</li>
+  {% endfor %}
+</ul>
 {% endif %}
 
-{% include base_path %}
-
-<!-- New style rendering if publication categories are defined -->
-{% if site.publication_category %}
-  {% for category in site.publication_category  %}
-    {% assign title_shown = false %}
-    {% for post in site.publications reversed %}
-      {% if post.category != category[0] %}
-        {% continue %}
-      {% endif %}
-      {% unless title_shown %}
-        <h2>{{ category[1].title }}</h2><hr />
-        {% assign title_shown = true %}
-      {% endunless %}
-      {% include archive-single.html %}
-    {% endfor %}
+{% assign published = resume.publications | where_exp: "p", "p.status != 'forthcoming'" %}
+{% assign groups = published | group_by: "year" %}
+{% for group in groups %}
+<h2 class="resume-year">{{ group.name }}</h2>
+<ul class="cv-publications resume-pubs">
+  {% for pub in group.items %}
+  <li class="cv-publication" id="{{ pub.id }}">{% include resume/publication.html pub=pub %}</li>
   {% endfor %}
-{% else %}
-  {% for post in site.publications reversed %}
-    {% include archive-single.html %}
-  {% endfor %}
-{% endif %}
-
-
-
+</ul>
+{% endfor %}

@@ -1,0 +1,21 @@
+---
+layout: archive
+title: "Media"
+permalink: /media/
+author_profile: true
+redirect_from:
+  - /press/
+---
+{% comment %}
+  Rendered from _data/resume.json (press[]). Each entry links to the original
+  article and shows a short summary written by me; articles are not republished.
+{% endcomment %}
+{% assign items = site.data.resume.press %}
+<p>Press coverage and interviews related to my research. Links go to the original articles, some of which may require a subscription.</p>
+{% if items.size > 0 %}
+<ul class="cv-list resume-list">
+  {% for item in items %}{% include resume/press-item.html item=item %}{% endfor %}
+</ul>
+{% else %}
+<p>Coming soon.</p>
+{% endif %}

@@ -1,0 +1,49 @@
+/* ==========================================================================
+    ROSSO THEME - DARK VERSION
+    Same hues as the light theme with raised lightness for readability.
+    ========================================================================== */
+
+/* Compile-time colours (identical to the light file) */
+$primary-color              : #8e1f2f;
+$gray                       : #625858;
+$dark-gray                  : #231d1e;
+$darker-gray                : #231d1e;
+$light-gray                 : #625858;
+$lighter-gray               : #e3dcdb;
+
+$danger-color               : #b3261e;
+$info-color                 : #8e1f2f;
+$notice-color               : #625858;
+$success-color              : #2e7d4f;
+$warning-color              : #9c5b3b;
+
+$border-radius              : 3px;
+$box-shadow                 : 0 1px 1px rgba(0, 0, 0, 0.3);
+$global-transition          : color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+$masthead-height            : 70px;
+$navicon-width              : 28px;
+$navicon-height             : 4px;
+$sidebar-link-max-width     : 250px;
+$sidebar-screen-min-width   : 1024px;
+
+/* Dark theme for the site */
+html[data-theme="dark"] {
+    --global-base-color                 : #e1878a;
+    --global-bg-color                   : #181415;
+    --global-footer-bg-color            : #221b1c;
+    --global-border-color               : #362d2e;
+    --global-dark-border-color          : #4a3f40;
+    --global-code-background-color      : #221b1c;
+    --global-code-text-color            : #eee7e7;
+    --global-fig-caption-color          : #b3a7a7;
+    --global-link-color                 : #e1878a;
+    --global-link-color-hover           : #eee7e7;
+    --global-link-color-visited         : #e1878a;
+    --global-masthead-link-color        : #eee7e7;
+    --global-masthead-link-color-hover  : #e1878a;
+    --global-text-color                 : #eee7e7;
+    --global-text-color-light           : #b3a7a7;
+    --global-thead-color                : #221b1c;
+    --global-accent-secondary           : #d99a76;
+    --global-tint-color                 : #221b1c;
+}

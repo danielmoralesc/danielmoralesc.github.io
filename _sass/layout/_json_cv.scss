@@ -237,3 +237,23 @@
     background-color: transparent;
   }
 }
+
+/* resume.json additions */
+.cv-label { font-size: 1.2rem; font-weight: bold; margin: 0 0 0.25rem; }
+.cv-headline { margin: 0 0 0.75rem; }
+.cv-profiles { flex-wrap: wrap; }
+/* Title wraps on the left; the date keeps its own column on the right, never drops below the title */
+.cv-item-header { flex-wrap: nowrap; align-items: baseline; gap: 0 1.25rem; }
+.cv-item-title { flex: 1 1 auto; min-width: 0; }
+.cv-item-date { flex: 0 0 auto; margin-left: auto; text-align: right; white-space: nowrap; }
+.cv-skill-keyword { border: 1px solid var(--global-border-color); }
+.cv-skill-keywords { margin-top: 0.5rem; }
+.cv-publications { padding-left: 1.5rem; }
+.cv-publication { margin-bottom: 0.75rem; }
+.cv-doi { display: block; font-size: 0.85rem; }
+.cv-source { font-size: 0.85rem; margin-top: 2rem; }
+.cv-press-excerpt { margin: 0.5rem 0 0; padding-left: 1rem; font-size: 0.95rem; }
+.cv-placeholder { font-size: 0.7rem; font-weight: normal; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.1rem 0.4rem; border: 1px dashed currentColor; border-radius: 4px; vertical-align: middle; opacity: 0.8; }
+.cv-upcoming { margin-left: 0.35rem; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.1rem 0.45rem; border-radius: 4px; vertical-align: middle; color: var(--global-bg-color); background-color: var(--global-base-color); }
+.cv-press-links { display: flex; flex-direction: column; gap: 0.2rem; margin-top: 0.5rem; font-size: 0.85rem; }
+.cv-title-translation { font-style: italic; opacity: 0.85; }

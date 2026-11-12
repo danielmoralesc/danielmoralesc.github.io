@@ -1,0 +1,168 @@
+{% comment %}
+  Home page (design A "Patina" with Rosso Roma), built from _data/resume.json.
+  Sections without data are not shown. Edit the JSON, not this file.
+{% endcomment %}
+{% include base_path %}
+{% assign r = site.data.resume %}
+{% assign b = r.basics %}
+{% assign this_year = site.time | date: "%Y" | plus: 0 %}
+{% for e in r.education %}{% if e.endDate == nil and e.thesis %}{% assign phd = e %}{% break %}{% endif %}{% endfor %}
+
+<section class="home-hero">
+  <div class="home-wrap home-hero__grid">
+    {% if site.author.avatar %}
+    <img class="home-hero__portrait" src="{{ site.author.avatar | prepend: '/images/' | prepend: base_path }}" alt="Portrait of {{ b.name }}" width="200" height="240" fetchpriority="high">
+    {% endif %}
+    <div>
+      <h1 class="home-hero__name">{{ b.name }}</h1>
+      <p class="home-hero__intro">{{ b.about[0] | default: b.headline }}</p>
+      <ul class="home-profiles">
+        {% for profile in b.profiles %}
+          {% case profile.network %}
+            {% when "ORCID" %}{% assign icon = "ai ai-orcid" %}
+            {% when "Google Scholar" %}{% assign icon = "ai ai-google-scholar" %}
+            {% when "Scopus" %}{% assign icon = "ai ai-scopus" %}
+            {% when "ResearchGate" %}{% assign icon = "ai ai-researchgate" %}
+            {% when "GitHub" %}{% assign icon = "fab fa-github" %}
+            {% when "LinkedIn" %}{% assign icon = "fab fa-linkedin" %}
+            {% else %}{% assign icon = "fas fa-link" %}
+          {% endcase %}
+        <li><a href="{{ profile.url }}"><i class="{{ icon }}" aria-hidden="true"></i>{{ profile.network }}</a></li>
+        {% endfor %}
+        {% if b.email %}<li><a href="mailto:{{ b.email }}"><i class="fas fa-envelope" aria-hidden="true"></i>{{ b.email }}</a></li>{% endif %}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="home-now" aria-label="Current work">
+  <div class="home-wrap home-now__grid">
+    {% assign memberships = r.affiliations | where: "type", "membership" %}
+    {% for a in r.affiliations %}{% unless a.endDate or a.type == "membership" %}
+    <div class="home-now__item">
+      <p class="home-now__kicker"><i class="fas fa-building-columns" aria-hidden="true"></i>Current position</p>
+      <p class="home-now__title">{{ a.role }}</p>
+      <p class="home-now__meta">{% if a.department %}{{ a.department }}, {% endif %}{{ a.organization }}{% if a.startDate %}, since {{ a.startDate | slice: 0, 4 }}{% endif %}</p>
+      {% for m in memberships %}{% unless m.endDate %}<p class="home-now__meta">Member of {% if m.url %}<a href="{{ m.url }}">{{ m.organization }}</a>{% else %}{{ m.organization }}{% endif %}</p>{% endunless %}{% endfor %}
+    </div>
+    {% endunless %}{% endfor %}
+
+    {% if phd %}
+    <div class="home-now__item">
+      <p class="home-now__kicker"><i class="fas fa-graduation-cap" aria-hidden="true"></i>Doctoral thesis</p>
+      <p class="home-now__title">{{ phd.thesis.title | default: phd.thesis.topic }}</p>
+      <p class="home-now__meta">{{ phd.degree }}</p>
+    </div>
+    {% endif %}
+
+    {% for f in r.funding %}{% assign end_year = f.endDate | slice: 0, 4 | plus: 0 %}{% if f.endDate == nil or end_year >= this_year %}
+    <div class="home-now__item">
+      <p class="home-now__kicker"><i class="fas fa-award" aria-hidden="true"></i>Funding</p>
+      <p class="home-now__title">{{ f.title }}</p>
+      <p class="home-now__meta">{{ f.funder }}, {% include cv-date-range.html start=f.startDate end=f.endDate %}</p>
+    </div>
+    {% endif %}{% endfor %}
+  </div>
+</section>
+
+{% if b.about.size > 0 or b.researchLines.size > 0 %}
+<section class="home-about" aria-labelledby="home-about-title">
+  <div class="home-wrap home-about__grid">
+    {% if b.about.size > 1 %}
+    <div class="home-about__text">
+      <h2 id="home-about-title">About</h2>
+      {% for paragraph in b.about offset: 1 %}<p>{{ paragraph }}</p>{% endfor %}
+    </div>
+    {% endif %}
+    {% if b.researchLines.size > 0 %}
+    <div class="home-about__lines">
+      <h2>Research lines</h2>
+      {% for line in b.researchLines %}
+      <article class="home-line">
+        <h3 class="home-line__title">{% if line.icon %}<i class="{{ line.icon }}" aria-hidden="true"></i>{% endif %}{{ line.title }}</h3>
+        <p class="home-line__desc">{{ line.description }}</p>
+        {% if line.keywords.size > 0 %}<ul class="home-line__tags">{% for k in line.keywords %}<li>{{ k }}</li>{% endfor %}</ul>{% endif %}
+      </article>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</section>
+{% endif %}
+
+<div class="home-wrap home-columns">
+  {% if r.publications.size > 0 %}
+  <section class="home-pubs" aria-labelledby="home-pubs-title">
+    <h2 id="home-pubs-title">Recent publications</h2>
+    {% for pub in r.publications limit: 3 %}
+    {% assign display_title = pub.originalTitle | default: pub.title %}
+    <article class="home-pub">
+      {%- assign pub_date = nil -%}
+      {%- if pub.status == "forthcoming" and pub.month -%}{%- capture pub_date -%}{{ pub.year }}-{{ pub.month | prepend: "0" | slice: -2, 2 }}-01{%- endcapture -%}{%- endif %}
+      <p class="home-pub__year">{{ pub.year }}{% if pub.status == "forthcoming" %}<span class="home-pub__status">forthcoming{% if pub_date %}, {{ pub_date | date: "%b" }}{% endif %}</span>{% endif %}</p>
+      <div>
+        <h3 class="home-pub__title">{% if pub.doi %}<a href="https://doi.org/{{ pub.doi }}">{{ display_title }}</a>{% elsif pub.url %}<a href="{{ pub.url }}">{{ display_title }}</a>{% else %}{{ display_title }}{% endif %}</h3>
+        {% if pub.originalTitle and pub.title != pub.originalTitle %}<p class="home-pub__translation">[{{ pub.title }}]</p>{% endif %}
+        <p class="home-pub__authors">{% for author in pub.authors %}{% unless forloop.first %}{% if forloop.last %} &amp; {% else %}, {% endif %}{% endunless %}{% if author.isSelf %}<strong>{{ author.name }}</strong>{% else %}{{ author.name }}{% endif %}{% endfor %}</p>
+        <p class="home-pub__venue"><em>{{ pub.venue.name }}{% if pub.venue.volume %}, {{ pub.venue.volume }}{% if pub.venue.issue %}({{ pub.venue.issue }}){% endif %}{% endif %}</em>{% if pub.doi %}<span class="home-pub__doi">doi:{{ pub.doi }}</span>{% endif %}</p>
+      </div>
+    </article>
+    {% endfor %}
+    <a class="btn btn--primary home-button" href="{{ base_path }}/publications/">All {{ r.publications.size }} publications</a>
+  </section>
+  {% endif %}
+
+  <aside class="home-aside">
+    {% if r.press.size > 0 %}
+    <section aria-labelledby="home-press-title">
+      <h2 id="home-press-title">In the press</h2>
+      <ul class="home-list">
+        {% for item in r.press limit: 3 %}
+        <li>
+          <p class="home-list__source"><i class="fas fa-newspaper" aria-hidden="true"></i><span class="home-list__outlet">{{ item.outlet }}</span><span>{{ item.date | date: "%-d %b %Y" }}</span></p>
+          <p class="home-list__title">{% if item.url %}<a href="{{ item.url }}">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}</p>
+        </li>
+        {% endfor %}
+      </ul>
+      {% if r.press.size > 3 %}<p class="home-more"><a href="{{ base_path }}/media/">All media coverage</a></p>{% endif %}
+    </section>
+    {% endif %}
+
+    {% if r.presentations.size > 0 %}
+    <section aria-labelledby="home-talks-title">
+      <h2 id="home-talks-title">Talks</h2>
+      <ul class="home-list">
+        {% for talk in r.presentations limit: 3 %}
+        {%- if talk.date.size > 7 -%}{%- assign talk_when = talk.date | date: "%-d %b %Y" -%}{%- else -%}{%- capture talk_when -%}{{ talk.date }}-01{%- endcapture -%}{%- assign talk_when = talk_when | date: "%b %Y" -%}{%- endif %}
+        <li>
+          <p class="home-list__source"><i class="fas fa-microphone-lines" aria-hidden="true"></i><span class="home-list__outlet">{{ talk.location | split: "," | first }}</span><span>{{ talk_when }}</span>{% if talk.status == "upcoming" %}<span class="cv-upcoming">Upcoming</span>{% endif %}</p>
+          <p class="home-list__title"><a href="{{ base_path }}/talks/#{{ talk.id }}">{{ talk.originalTitle | default: talk.title }}</a></p>
+        </li>
+        {% endfor %}
+      </ul>
+      {% if r.presentations.size > 3 %}<p class="home-more"><a href="{{ base_path }}/talks/">All talks</a></p>{% endif %}
+    </section>
+    {% endif %}
+
+    {% assign lecturing = r.teaching | where: "type", "lecturer" %}
+    {% if lecturing.size > 0 %}
+    <section aria-labelledby="home-teaching-title">
+      <h2 id="home-teaching-title">Teaching</h2>
+      <ul class="home-list">
+        {% for item in lecturing limit: 3 %}
+        <li>
+          <p class="home-list__source"><i class="fas fa-chalkboard-user" aria-hidden="true"></i><span class="home-list__outlet">{{ item.institution }}</span><span>{% include cv-date-range.html start=item.startDate end=item.endDate %}</span></p>
+          <p class="home-list__title">{{ item.course }}{% if item.placeholder %} <span class="cv-placeholder">Example</span>{% endif %}</p>
+        </li>
+        {% endfor %}
+      </ul>
+      <p class="home-more"><a href="{{ base_path }}/teaching/">All teaching</a></p>
+    </section>
+    {% endif %}
+  </aside>
+</div>
+
+<div class="home-wrap home-colophon">
+  <p>Last updated {{ r.meta.lastModified | date: "%-d %B %Y" }}</p>
+  <p class="home-colophon__links"><a href="{{ base_path }}/cv/">Full CV</a><a href="{{ base_path }}/resume.json">resume.json</a><a href="https://github.com/{{ site.repository }}">Source on GitHub</a></p>
+</div>

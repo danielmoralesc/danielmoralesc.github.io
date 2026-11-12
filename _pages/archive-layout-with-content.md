@@ -1,4 +1,5 @@
 ---
+published: false # disabled until there is content; remove this line to re-enable
 title: "Archive Layout with Content"
 layout: archive
 permalink: /archive-layout-with-content/

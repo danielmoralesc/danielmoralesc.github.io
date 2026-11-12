@@ -10,24 +10,20 @@
 main:
   - title: "Publications"
     url: /publications/
-
   - title: "Talks"
-    url: /talks/    
-
+    url: /talks/
   - title: "Teaching"
-    url: /teaching/    
-    
-  - title: "Portfolio"
-    url: /portfolio/
-        
-  - title: "Blog Posts"
-    url: /year-archive/
-    
+    url: /teaching/
+  - title: "Media"
+    url: /media/
   - title: "CV"
     url: /cv/
-    
-  # - title: "CV"
-  #   url: /cv-json/
-    
-  - title: "Guide"
-    url: /markdown/
+  # Disabled until there is content. To re-enable a section, uncomment it here,
+  # remove `published: false` from its page in _pages/ and, for talks/portfolio,
+  # set the collection back to `output: true` in _config.yml.
+  # - title: "Portfolio"
+  #   url: /portfolio/
+  # - title: "Blog Posts"
+  #   url: /year-archive/
+  # - title: "Guide"
+  #   url: /markdown/

@@ -1,0 +1,19 @@
+{%- comment -%}
+  teaching[] from resume.json split by `type` ("lecturer" | "assistant"): courses taught as lecturer first,
+  then as teaching assistant. Every entry must have one of those two types.
+  Usage: {% include resume/teaching-groups.html items=site.data.resume.teaching %}
+{%- endcomment -%}
+{%- assign lecturer = include.items | where: "type", "lecturer" -%}
+{%- assign assistant = include.items | where: "type", "assistant" -%}
+{% if lecturer.size > 0 %}
+<h3 class="resume-subhead">Lecturer</h3>
+<ul class="cv-list resume-list">
+  {% for item in lecturer %}{% include resume/teaching-item.html item=item %}{% endfor %}
+</ul>
+{% endif %}
+{% if assistant.size > 0 %}
+<h3 class="resume-subhead">Teaching assistant</h3>
+<ul class="cv-list resume-list">
+  {% for item in assistant %}{% include resume/teaching-item.html item=item %}{% endfor %}
+</ul>
+{% endif %}
