@@ -1,0 +1,64 @@
+name: Update profile README
+
+# Regenerates README.md in danielmoralesc/danielmoralesc (branch master) from
+# _data/resume.json. Requires the PROFILE_REPO_TOKEN secret: a fine-grained PAT
+# with "Contents: read and write" on danielmoralesc/danielmoralesc only
+# (GITHUB_TOKEN cannot push to another repository).
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - _data/resume.json
+      - scripts/generate_readme.py
+      - .github/workflows/profile_readme.yml
+  workflow_dispatch:
+
+concurrency:
+  group: profile-readme
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  readme:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out site repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          path: site
+          persist-credentials: false
+
+      - name: Check out profile repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: danielmoralesc/danielmoralesc
+          ref: master
+          path: profile
+          token: ${{ secrets.PROFILE_REPO_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+
+      - name: Validate resume.json and generate README
+        run: python site/scripts/generate_readme.py --input site/_data/resume.json --output profile/README.md
+
+      - name: Commit and push if changed
+        working-directory: profile
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "README unchanged; nothing to commit."
+            exit 0
+          fi
+          last_modified=$(python -c "import json; print(json.load(open('../site/_data/resume.json'))['meta']['lastModified'])")
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git commit -m "Update README from resume.json (${last_modified})" -m "Source: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/commit/${GITHUB_SHA}"
+          git push origin HEAD:master
+          echo "README updated from resume.json (${last_modified})." >> "$GITHUB_STEP_SUMMARY"

@@ -8,12 +8,12 @@
 
 # Basic Site Settings
 locale                   : "en-US"
-site_theme               : "default" # The available themes options are "default", "air", "sunrise", "mint", "dirt" and "contrast"
+site_theme               : "rosso" # Rosso Roma (#8E1F2F) + copper; custom theme in _sass/theme/_rosso_*.scss
 title                    : "Daniel Morales-Campos"
 title_separator          : "-"
 name                     : &name "Daniel Morales-Campos"
-description              : &description "Your Name's academic portfolio"   # Update this with a general description of your site, this is the default if not overridden by a page
-url                      : https://academicpages.github.io # The base hostname & protocol for your site e.g. "https://[your GitHub username].github.io",
+description              : &description "Economic historian working on mining, energy and greenhouse gas emissions in Chile, 1840–2024."
+url                      : https://danielmoralesc.github.io # The base hostname & protocol for your site e.g. "https://[your GitHub username].github.io",
                                                            # or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "danielmoralesc/danielmoralesc.github.io"
@@ -26,7 +26,7 @@ author:
   avatar           : "profile.png"
   name             : "Daniel Morales-Campos"
   pronouns         : # example: "she/her"  
-  bio              : "Short biography for the left-hand sidebar"
+  bio              : # empty: the sidebar shows basics.headline from _data/resume.json
   location         : "Pamplona, Navarra, Spain"
   employer         : "Public University of Navarra (UPNA)"
   uri              : # URL
@@ -43,7 +43,7 @@ author:
   ssrn             : # URL
   pubmed           : # URL
   researchgate     : # URL
-  scopus           : # URL
+  scopus           : "https://www.scopus.com/authid/detail.uri?authorId=57220117004"
   zotero           : # URL
 
 
@@ -51,7 +51,7 @@ author:
   bitbucket        : # Username - Update with your username on the site
   codepen          : # Username
   dribbble         : # Username
-  github           : # 
+  github           : "danielmoralesc"
   kaggle           : # Username  
   stackoverflow    : # User number or user number and name (i.e., use "1" or "1/jeff-atwood")    
 
@@ -125,7 +125,7 @@ staticman:
       options:
         format           : "iso8601" # "iso8601" (default), "timestamp-seconds", "timestamp-milliseconds"
 atom_feed:
-  hide                   : false     # change to true to hide the RSS feed in the footer
+  hide                   : true # no blog posts yet; set to false when the blog is re-enabled
   path                   : # blank (default) uses feed.xml
 
 
@@ -222,16 +222,16 @@ kramdown:
 # These settings control the types of collections used by the template
 collections:
   teaching:
-    output: true
+    output: false # rendered from _data/resume.json; demo files kept
     permalink: /:collection/:path/
   publications:
-    output: true
+    output: false # rendered from _data/resume.json; demo files kept
     permalink: /:collection/:path/
   portfolio:
-    output: true
+    output: false # disabled until there is content; set to true to re-enable
     permalink: /:collection/:path/
   talks:
-    output: true
+    output: false # disabled until there is content; set to true to re-enable
     permalink: /:collection/:path/
 
 
@@ -248,6 +248,7 @@ defaults:
       comments: true
       share: true
       related: true
+      published: false # blog disabled until there is content; remove to re-enable
   # _pages
   - scope:
       path: ""

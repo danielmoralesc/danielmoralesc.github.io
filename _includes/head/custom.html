@@ -12,6 +12,25 @@
 <link rel="icon" type="image/png" href="{{ base_path }}/images/favicon-192x192.png" sizes="192x192"/>
 <link rel="manifest" href="{{ base_path }}/images/manifest.json"/>
 <link rel="icon" href="/images/favicon.ico"/>
-<meta name="theme-color" content="#ffffff"/>
+<!-- Fonts: Newsreader (headings) and Instrument Sans (text) -->
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap"/>
+
+<!-- Browser UI colour and form controls follow the site theme -->
+<meta id="theme-color-meta" name="theme-color" content="#faf9f8"/>
+<script>
+  (function () {
+    var root = document.documentElement;
+    var sync = function () {
+      var dark = root.getAttribute("data-theme") === "dark";
+      root.style.colorScheme = dark ? "dark" : "light";
+      var meta = document.getElementById("theme-color-meta");
+      if (meta) { meta.setAttribute("content", dark ? "#181415" : "#faf9f8"); }
+    };
+    new MutationObserver(sync).observe(root, { attributes: true, attributeFilter: ["data-theme"] });
+    sync();
+  })();
+</script>
 
 <!-- end custom head snippets -->

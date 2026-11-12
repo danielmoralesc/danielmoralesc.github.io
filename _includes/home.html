@@ -1,0 +1,149 @@
+{% comment %}
+  Home page (design A "Patina" with Rosso Roma), built from _data/resume.json.
+  Sections without data are not shown. Edit the JSON, not this file.
+{% endcomment %}
+{% include base_path %}
+{% assign r = site.data.resume %}
+{% assign b = r.basics %}
+{% assign period = b.researchPeriod %}
+{% assign this_year = site.time | date: "%Y" | plus: 0 %}
+{% for e in r.education %}{% if e.endDate == nil and e.thesis %}{% assign phd = e %}{% break %}{% endif %}{% endfor %}
+
+<section class="home-hero">
+  <div class="home-wrap home-hero__grid">
+    {% if site.author.avatar %}
+    <img class="home-hero__portrait" src="{{ site.author.avatar | prepend: '/images/' | prepend: base_path }}" alt="Portrait of {{ b.name }}" width="200" height="240" fetchpriority="high">
+    {% endif %}
+    <div>
+      {% capture period_suffix %}, {{ period.start }}–{{ period.end }}{% endcapture %}
+      <h1 class="home-hero__title">{{ b.headline | remove: period_suffix }}</h1>
+      {% if phd %}
+      <p class="home-hero__lead">{{ phd.studyType }} candidate in {{ phd.area }} at the {{ phd.institution }}{% if phd.thesis.advisors.size > 0 %}, supervised by {{ phd.thesis.advisors | join: " and " }}{% endif %}.</p>
+      {% endif %}
+      <ul class="home-profiles">
+        {% for profile in b.profiles %}
+          {% case profile.network %}
+            {% when "ORCID" %}{% assign icon = "ai ai-orcid" %}
+            {% when "Google Scholar" %}{% assign icon = "ai ai-google-scholar" %}
+            {% when "Scopus" %}{% assign icon = "ai ai-scopus" %}
+            {% when "ResearchGate" %}{% assign icon = "ai ai-researchgate" %}
+            {% when "GitHub" %}{% assign icon = "fab fa-github" %}
+            {% when "LinkedIn" %}{% assign icon = "fab fa-linkedin" %}
+            {% else %}{% assign icon = "fas fa-link" %}
+          {% endcase %}
+        <li><a href="{{ profile.url }}"><i class="{{ icon }}" aria-hidden="true"></i>{{ profile.network }}</a></li>
+        {% endfor %}
+        {% if b.email %}<li><a href="mailto:{{ b.email }}"><i class="fas fa-envelope" aria-hidden="true"></i>{{ b.email }}</a></li>{% endif %}
+      </ul>
+    </div>
+  </div>
+</section>
+
+{% if period %}
+{% assign span = period.end | minus: period.start %}
+{% assign tick_limit = period.end | minus: 10 %}
+<section class="home-period">
+  <div class="home-wrap">
+    <p class="home-period__label">{{ period.label }}, {{ period.start }}–{{ period.end }}</p>
+    <div class="home-period__band" aria-hidden="true"></div>
+    <div class="home-period__ticks" aria-hidden="true">
+      {% for y in (period.start..tick_limit) %}
+        {% assign offset = y | minus: period.start %}
+        {% assign step = offset | modulo: 20 %}
+        {% if step == 0 %}
+          {% assign left = offset | times: 100.0 | divided_by: span %}
+          {% assign major = offset | modulo: 60 %}
+      <span class="home-period__tick{% if major != 0 %} home-period__tick--minor{% endif %}" style="left: {{ left }}%">{{ y }}</span>
+        {% endif %}
+      {% endfor %}
+      <span class="home-period__tick home-period__tick--end" style="left: 100%">{{ period.end }}</span>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<section class="home-now" aria-label="Current work">
+  <div class="home-wrap home-now__grid">
+    {% for a in r.affiliations %}{% unless a.endDate %}
+    <div class="home-now__item">
+      <p class="home-now__kicker"><i class="fas fa-building-columns" aria-hidden="true"></i>Current position</p>
+      <p class="home-now__title">{{ a.role }}</p>
+      <p class="home-now__meta">{{ a.organization }}{% if a.startDate %}, since {{ a.startDate | slice: 0, 4 }}{% endif %}</p>
+    </div>
+    {% endunless %}{% endfor %}
+
+    {% if phd %}
+    <div class="home-now__item">
+      <p class="home-now__kicker"><i class="fas fa-graduation-cap" aria-hidden="true"></i>Doctoral thesis</p>
+      <p class="home-now__title">{{ phd.thesis.title | default: phd.thesis.topic }}</p>
+      <p class="home-now__meta">{{ phd.degree }}</p>
+    </div>
+    {% endif %}
+
+    {% for f in r.funding %}{% assign end_year = f.endDate | slice: 0, 4 | plus: 0 %}{% if f.endDate == nil or end_year >= this_year %}
+    <div class="home-now__item">
+      <p class="home-now__kicker"><i class="fas fa-award" aria-hidden="true"></i>Funding</p>
+      <p class="home-now__title">{{ f.title }}</p>
+      <p class="home-now__meta">{{ f.funder }}, {% include cv-date-range.html start=f.startDate end=f.endDate %}</p>
+    </div>
+    {% endif %}{% endfor %}
+  </div>
+</section>
+
+<div class="home-wrap home-columns">
+  {% if r.publications.size > 0 %}
+  <section class="home-pubs" aria-labelledby="home-pubs-title">
+    <h2 id="home-pubs-title">Recent publications</h2>
+    {% for pub in r.publications limit: 3 %}
+    {% assign display_title = pub.originalTitle | default: pub.title %}
+    <article class="home-pub">
+      <p class="home-pub__year">{{ pub.year }}</p>
+      <div>
+        <h3 class="home-pub__title">{% if pub.doi %}<a href="https://doi.org/{{ pub.doi }}">{{ display_title }}</a>{% elsif pub.url %}<a href="{{ pub.url }}">{{ display_title }}</a>{% else %}{{ display_title }}{% endif %}</h3>
+        {% if pub.originalTitle and pub.title != pub.originalTitle %}<p class="home-pub__translation">[{{ pub.title }}]</p>{% endif %}
+        <p class="home-pub__authors">{% for author in pub.authors %}{% unless forloop.first %}{% if forloop.last %} &amp; {% else %}, {% endif %}{% endunless %}{% if author.isSelf %}<strong>{{ author.name }}</strong>{% else %}{{ author.name }}{% endif %}{% endfor %}</p>
+        <p class="home-pub__venue"><em>{{ pub.venue.name }}{% if pub.venue.volume %}, {{ pub.venue.volume }}{% if pub.venue.issue %}({{ pub.venue.issue }}){% endif %}{% endif %}</em>{% if pub.doi %}<span class="home-pub__doi">doi:{{ pub.doi }}</span>{% endif %}</p>
+      </div>
+    </article>
+    {% endfor %}
+    <a class="btn btn--primary home-button" href="{{ base_path }}/publications/">All {{ r.publications.size }} publications</a>
+  </section>
+  {% endif %}
+
+  <aside class="home-aside">
+    {% if r.press.size > 0 %}
+    <section aria-labelledby="home-press-title">
+      <h2 id="home-press-title">In the press</h2>
+      <ul class="home-list">
+        {% for item in r.press limit: 3 %}
+        <li>
+          <p class="home-list__source"><i class="fas fa-newspaper" aria-hidden="true"></i><span class="home-list__outlet">{{ item.outlet }}</span><span>{{ item.date | date: "%-d %b %Y" }}</span></p>
+          <p class="home-list__title">{% if item.url %}<a href="{{ item.url }}">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}</p>
+        </li>
+        {% endfor %}
+      </ul>
+      {% if r.press.size > 3 %}<p class="home-more"><a href="{{ base_path }}/media/">All media coverage</a></p>{% endif %}
+    </section>
+    {% endif %}
+
+    {% if r.teaching.size > 0 %}
+    <section aria-labelledby="home-teaching-title">
+      <h2 id="home-teaching-title">Teaching</h2>
+      <ul class="home-list">
+        {% for item in r.teaching limit: 3 %}
+        <li>
+          <p class="home-list__source"><i class="fas fa-chalkboard-user" aria-hidden="true"></i><span class="home-list__outlet">{{ item.institution }}</span><span>{% include cv-date-range.html start=item.startDate end=item.endDate %}</span></p>
+          <p class="home-list__title">{{ item.course }}{% if item.placeholder %} <span class="cv-placeholder">Example</span>{% endif %}</p>
+        </li>
+        {% endfor %}
+      </ul>
+      <p class="home-more"><a href="{{ base_path }}/teaching/">All teaching</a></p>
+    </section>
+    {% endif %}
+  </aside>
+</div>
+
+<div class="home-wrap home-colophon">
+  <p>Last updated {{ r.meta.lastModified | date: "%-d %B %Y" }}</p>
+  <p class="home-colophon__links"><a href="{{ base_path }}/cv/">Full CV</a><a href="{{ base_path }}/resume.json">resume.json</a><a href="https://github.com/{{ site.repository }}">Source on GitHub</a></p>
+</div>

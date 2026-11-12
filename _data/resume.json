@@ -1,0 +1,525 @@
+{
+  "meta": {
+    "schemaVersion": "1.0.0",
+    "lastModified": "2026-09-15",
+    "language": "en-GB",
+    "canonicalUrl": "https://danielmoralesc.github.io/resume.json"
+  },
+  "basics": {
+    "name": "Daniel Morales Campos",
+    "givenNames": "Daniel",
+    "familyName": "Morales Campos",
+    "citationName": "Morales-Campos, D.",
+    "label": "PhD Candidate in Economic History",
+    "headline": "Economic historian working on mining, energy and greenhouse gas emissions in Chile, 1840–2024.",
+    "researchPeriod": {
+      "start": 1840,
+      "end": 2024,
+      "label": "Thesis period: the long-run emissions of Chilean copper mining"
+    },
+    "email": "daniel.morales@unavarra.es",
+    "website": "https://danielmoralesc.github.io",
+    "location": {
+      "city": "Pamplona",
+      "region": "Navarre",
+      "countryCode": "ES"
+    },
+    "summary": "PhD candidate in Economics, Business and Law at the Public University of Navarre. My doctoral research examines the long-term impact of Chilean copper mining on greenhouse gas emissions (1840–2024). Before that, I worked for a decade as a research assistant on projects on the anthropometric history, living standards, nutrition and public health of Chile.",
+    "researchInterests": [
+      "Economic history",
+      "Mining and energy history",
+      "Greenhouse gas emissions",
+      "Anthropometric history",
+      "Living standards and inequality",
+      "History of Chile"
+    ],
+    "supervisors": [
+      { "name": "Cristián Ducoing Ruiz", "affiliation": "Public University of Navarre" },
+      { "name": "Mar Rubio-Varas", "affiliation": "Public University of Navarre" }
+    ],
+    "languages": [
+      { "language": "Spanish", "fluency": "Native" },
+      { "language": "English", "fluency": null }
+    ],
+    "profiles": [
+      {
+        "network": "ORCID",
+        "username": "0000-0002-5581-8542",
+        "url": "https://orcid.org/0000-0002-5581-8542"
+      },
+      {
+        "network": "Google Scholar",
+        "username": "nphqYZIAAAAJ",
+        "url": "https://scholar.google.es/citations?user=nphqYZIAAAAJ"
+      },
+      {
+        "network": "Scopus",
+        "username": "57220117004",
+        "url": "https://www.scopus.com/authid/detail.uri?authorId=57220117004"
+      },
+      {
+        "network": "GitHub",
+        "username": "danielmoralesc",
+        "url": "https://github.com/danielmoralesc"
+      }
+    ]
+  },
+  "affiliations": [
+    {
+      "organization": "Public University of Navarre",
+      "department": null,
+      "role": "Predoctoral Researcher (ANDIA grant)",
+      "type": "employment",
+      "startDate": "2025",
+      "endDate": null,
+      "location": "Pamplona, ES",
+      "url": "https://www.unavarra.es",
+      "ror": null,
+      "description": "Doctoral research on the long-term greenhouse gas emissions of Chilean copper mining."
+    },
+    {
+      "organization": "University of Santiago, Chile",
+      "department": "Department of Political Studies, Faculty of Humanities",
+      "role": "Adjunct Lecturer",
+      "type": "employment",
+      "startDate": "2022",
+      "endDate": "2024",
+      "location": "Santiago, CL",
+      "url": "https://www.usach.cl",
+      "ror": null,
+      "description": null
+    }
+  ],
+  "education": [
+    {
+      "institution": "Public University of Navarre",
+      "degree": "PhD in Economics, Business and Law",
+      "studyType": "PhD",
+      "area": "Economics, Business and Law",
+      "startDate": "2024",
+      "endDate": null,
+      "honors": null,
+      "url": "https://www.unavarra.es",
+      "ror": null,
+      "thesis": {
+        "title": null,
+        "topic": "Long-term impact of Chilean copper mining on greenhouse gas emissions, 1840–2024",
+        "advisors": ["Cristián Ducoing Ruiz", "Mar Rubio-Varas"],
+        "doi": null
+      }
+    },
+    {
+      "institution": "University of Santiago, Chile",
+      "degree": "Master in Economic History",
+      "studyType": "MA",
+      "area": "Economic History",
+      "startDate": "2018",
+      "endDate": "2022",
+      "honors": null,
+      "url": "https://www.usach.cl",
+      "ror": null,
+      "thesis": null
+    },
+    {
+      "institution": "University of Santiago, Chile",
+      "degree": "Bachelor in Economics",
+      "studyType": "BA",
+      "area": "Economics",
+      "startDate": "2011",
+      "endDate": "2016",
+      "honors": null,
+      "url": "https://www.usach.cl",
+      "ror": null,
+      "thesis": null
+    }
+  ],
+  "publications": [
+    {
+      "id": "llorcajana2025suicide",
+      "type": "journal-article",
+      "title": "Regional inequality in the historical evolution of suicide in Chile, 1921-2021",
+      "originalTitle": "Desigualdad regional de la evolución histórica del suicidio en Chile, 1921-2021",
+      "authors": [
+        { "name": "Llorca-Jaña, M." },
+        { "name": "Rivas, J." },
+        { "name": "Morales-Campos, D.", "orcid": "0000-0002-5581-8542", "isSelf": true }
+      ],
+      "venue": {
+        "name": "Historia 396",
+        "type": "journal",
+        "volume": "15",
+        "issue": "2",
+        "pages": "129",
+        "articleNumber": null,
+        "publisher": null,
+        "issn": "0719-7969"
+      },
+      "year": 2025,
+      "month": 8,
+      "doi": "10.4151/07197969-Vol.15-Iss.2-Art.867",
+      "url": null,
+      "openAccess": null,
+      "featured": true,
+      "languageCode": "es",
+      "keywords": ["suicide", "regional inequality", "Chile"],
+      "abstract": null
+    },
+    {
+      "id": "llorcajana2025birthweight",
+      "type": "journal-article",
+      "title": "Secular trends in birth weight in Chile and its regions between 1990 and 2021",
+      "originalTitle": null,
+      "authors": [
+        { "name": "Llorca-Jaña, M." },
+        { "name": "Morales-Campos, D.", "orcid": "0000-0002-5581-8542", "isSelf": true }
+      ],
+      "venue": {
+        "name": "American Journal of Human Biology",
+        "type": "journal",
+        "volume": "37",
+        "issue": "1",
+        "pages": null,
+        "articleNumber": "e70002",
+        "publisher": null,
+        "issn": null
+      },
+      "year": 2025,
+      "month": null,
+      "doi": "10.1002/ajhb.70002",
+      "url": null,
+      "openAccess": null,
+      "featured": true,
+      "languageCode": "en",
+      "keywords": ["birth weight", "anthropometric history", "Chile"],
+      "abstract": null
+    },
+    {
+      "id": "llorcajana2024sanitation",
+      "type": "journal-article",
+      "title": "Poor Sanitation, Deaths, and Regional Inequality in Twentieth-Century Chile",
+      "originalTitle": null,
+      "authors": [
+        { "name": "Llorca-Jaña, M." },
+        { "name": "Rivas, J." },
+        { "name": "Morales-Campos, D.", "orcid": "0000-0002-5581-8542", "isSelf": true }
+      ],
+      "venue": {
+        "name": "The Journal of Interdisciplinary History",
+        "type": "journal",
+        "volume": "55",
+        "issue": "2",
+        "pages": "181-207",
+        "articleNumber": null,
+        "publisher": null,
+        "issn": null
+      },
+      "year": 2024,
+      "month": null,
+      "doi": "10.1162/jinh_a_02037",
+      "url": null,
+      "openAccess": null,
+      "featured": true,
+      "languageCode": "en",
+      "keywords": ["sanitation", "mortality", "regional inequality", "Chile"],
+      "abstract": null
+    },
+    {
+      "id": "llorcajana2024suicidetrends",
+      "type": "journal-article",
+      "title": "Main trends in Chile's suicide rates: 1921-2020",
+      "originalTitle": null,
+      "authors": [
+        { "name": "Llorca-Jaña, M." },
+        { "name": "Rivas, J." },
+        { "name": "Morales-Campos, D.", "orcid": "0000-0002-5581-8542", "isSelf": true }
+      ],
+      "venue": {
+        "name": "Macrohistoria",
+        "type": "journal",
+        "volume": "7",
+        "issue": null,
+        "pages": "66-80",
+        "articleNumber": null,
+        "publisher": null,
+        "issn": null
+      },
+      "year": 2024,
+      "month": null,
+      "doi": "10.62120/mch.7.63",
+      "url": null,
+      "openAccess": null,
+      "featured": false,
+      "languageCode": null,
+      "keywords": ["suicide", "Chile"],
+      "abstract": null
+    },
+    {
+      "id": "llorcajana2022nutrition",
+      "type": "journal-article",
+      "title": "The Timing and Nature of the Nutrition Transition in Chile, 1930-2019",
+      "originalTitle": null,
+      "authors": [
+        { "name": "Llorca-Jaña, M." },
+        { "name": "Nazer, R." },
+        { "name": "Rivas, J." },
+        { "name": "Morales-Campos, D.", "orcid": "0000-0002-5581-8542", "isSelf": true }
+      ],
+      "venue": {
+        "name": "Revista RIVAR",
+        "type": "journal",
+        "volume": "9",
+        "issue": "26",
+        "pages": null,
+        "articleNumber": null,
+        "publisher": null,
+        "issn": null
+      },
+      "year": 2022,
+      "month": null,
+      "doi": "10.35588/rivar.v9i26.5534",
+      "url": null,
+      "openAccess": null,
+      "featured": false,
+      "languageCode": null,
+      "keywords": ["nutrition transition", "Chile"],
+      "abstract": null
+    },
+    {
+      "id": "llorcajana2020milkmeat",
+      "type": "journal-article",
+      "title": "Milk and meat consumption and production in Chile, c. 1930-2017: A history of a successful nutrition transition",
+      "originalTitle": null,
+      "authors": [
+        { "name": "Llorca-Jaña, M." },
+        { "name": "Nazer, R." },
+        { "name": "Morales-Campos, D.", "orcid": "0000-0002-5581-8542", "isSelf": true },
+        { "name": "Navarrete-Montalvo, J." }
+      ],
+      "venue": {
+        "name": "Historia Agraria. Revista de Agricultura e Historia Rural",
+        "type": "journal",
+        "volume": "82",
+        "issue": null,
+        "pages": "245-285",
+        "articleNumber": null,
+        "publisher": null,
+        "issn": null
+      },
+      "year": 2020,
+      "month": null,
+      "doi": "10.26882/histagrar.082e05l",
+      "url": null,
+      "openAccess": null,
+      "featured": false,
+      "languageCode": null,
+      "keywords": ["nutrition transition", "agrarian history", "Chile"],
+      "abstract": null
+    }
+  ],
+  "researchProjects": [
+    {
+      "code": "1240108",
+      "programme": "FONDECYT Regular",
+      "funder": "ANID",
+      "title": "New Anthropometric History of Chile",
+      "role": "Research Assistant",
+      "startDate": "2024",
+      "endDate": "2025",
+      "institution": null
+    },
+    {
+      "code": "1210144",
+      "programme": "FONDECYT Regular",
+      "funder": "ANID",
+      "title": "The Impact of the Expansion of Aqueduct and Sewerage Infrastructure on Chile's Living Standards, c.1900s–2020",
+      "role": "Research Assistant",
+      "startDate": "2021",
+      "endDate": "2023",
+      "institution": null
+    },
+    {
+      "code": "AIFAL2103",
+      "programme": null,
+      "funder": "Adolfo Ibáñez University",
+      "title": null,
+      "role": "Research Assistant",
+      "startDate": "2021",
+      "endDate": "2021",
+      "institution": "Adolfo Ibáñez University"
+    },
+    {
+      "code": "SOC-180001",
+      "programme": "Anillos PIA",
+      "funder": "ANID",
+      "title": "Welfare and Inequality in Chile after Independence, c.1810–2020",
+      "role": "Research Assistant",
+      "startDate": "2019",
+      "endDate": "2021",
+      "institution": null
+    },
+    {
+      "code": "1180005",
+      "programme": "FONDECYT Regular",
+      "funder": "CONICYT (now ANID)",
+      "title": "Anthropometric History of Chile",
+      "role": "Research Assistant",
+      "startDate": "2018",
+      "endDate": "2018",
+      "institution": null
+    },
+    {
+      "code": "1161425",
+      "programme": "FONDECYT Regular",
+      "funder": "CONICYT (now ANID)",
+      "title": "The History of Energy Transitions and Structural Change in the Chilean Economy (19th–21st centuries)",
+      "role": "External Research Collaborator",
+      "startDate": "2016",
+      "endDate": "2016",
+      "institution": null
+    },
+    {
+      "code": null,
+      "programme": null,
+      "funder": null,
+      "title": "Observatorio Fiscal",
+      "role": "Research Assistant",
+      "startDate": "2015",
+      "endDate": "2017",
+      "institution": "University of Santiago, Chile"
+    }
+  ],
+  "funding": [
+    {
+      "title": "ANDIA predoctoral grant",
+      "funder": "Government of Navarre",
+      "grantNumber": null,
+      "role": "Beneficiary",
+      "startDate": "2025",
+      "endDate": "2028",
+      "url": null
+    }
+  ],
+  "teaching": [
+    {
+      "course": "Economic History of Chile",
+      "courseCode": "EXAMPLE-101",
+      "programme": "Bachelor in Political Science",
+      "institution": "University of Santiago, Chile",
+      "level": "undergraduate",
+      "role": "Adjunct Lecturer",
+      "startDate": "2024-03",
+      "endDate": "2024-07",
+      "description": "Survey of Chile's long-run economic development from independence to the present, with a focus on natural-resource cycles.",
+      "url": null,
+      "placeholder": true
+    },
+    {
+      "course": "Political Economy of Natural Resources",
+      "courseCode": "EXAMPLE-214",
+      "programme": "Bachelor in Political Science",
+      "institution": "University of Santiago, Chile",
+      "level": "undergraduate",
+      "role": "Adjunct Lecturer",
+      "startDate": "2023-08",
+      "endDate": "2023-12",
+      "description": "Mining, rents and the state in Latin America: nitrate, copper and lithium in comparative perspective.",
+      "url": null,
+      "placeholder": true
+    },
+    {
+      "course": "Introduction to Economics",
+      "courseCode": "EXAMPLE-110",
+      "programme": "Bachelor in Public Administration",
+      "institution": "University of Santiago, Chile",
+      "level": "undergraduate",
+      "role": "Adjunct Lecturer",
+      "startDate": "2023-03",
+      "endDate": "2023-07",
+      "description": "Core concepts of micro- and macroeconomics for social science students.",
+      "url": null,
+      "placeholder": true
+    },
+    {
+      "course": "Quantitative Methods for the Social Sciences",
+      "courseCode": "EXAMPLE-230",
+      "programme": "Bachelor in Political Science",
+      "institution": "University of Santiago, Chile",
+      "level": "undergraduate",
+      "role": "Adjunct Lecturer",
+      "startDate": "2022-08",
+      "endDate": "2022-12",
+      "description": "Descriptive statistics, regression and data visualisation with R.",
+      "url": null,
+      "placeholder": true
+    }
+  ],
+  "presentations": [],
+  "press": [
+    {
+      "title": "La evolución de los suicidios en Chile: más hombres y de mayor edad",
+      "outlet": "La Tercera",
+      "section": "Nacional",
+      "author": "Francisco Corvalán",
+      "date": "2025-08-30",
+      "type": "coverage",
+      "language": "es",
+      "url": "https://www.latercera.com/nacional/noticia/la-evolucion-de-los-suicidios-en-chile-mas-hombres-y-de-mayor-edad/",
+      "accessNote": "may require registration or subscription",
+      "relatedPublication": "llorcajana2025suicide",
+      "relatedUrls": [],
+      "excerpt": "Coverage of our study of the historical evolution of suicide in Chile and its regions, 1921–2021, which shows how the most affected groups have shifted, with rates concentrated among men and, increasingly, among middle-aged and older people."
+    },
+    {
+      "title": "Estudio alerta que Calama, María Elena y San Pedro de Atacama tienen los peores índices de bajo peso al nacer",
+      "outlet": "El Referente",
+      "section": null,
+      "author": null,
+      "date": "2025-02-06",
+      "type": "coverage",
+      "language": "es",
+      "url": "https://elreferente.cl/estudio-alerta-que-calama-maria-elena-y-san-pedro-de-atacama-tienen-los-peores-indices-de-peso-al-nacer-en-recien-nacidos/",
+      "accessNote": null,
+      "relatedPublication": "llorcajana2025birthweight",
+      "relatedUrls": [
+        {
+          "label": "Adolfo Ibáñez University press record",
+          "url": "https://pure.uai.cl/en/clippings/estudio-alerta-que-calama-mar%C3%ADa-elena-y-san-pedro-de-atacama-tien/"
+        }
+      ],
+      "excerpt": "Regional coverage of the same study, focusing on the Antofagasta region, where Calama, María Elena and San Pedro de Atacama recorded the lowest average birth weights in the country over the last decade."
+    },
+    {
+      "title": "Estas son las comunas donde los niños tienen hasta 20 veces más riesgo de muerte, según su peso al nacer",
+      "outlet": "La Tercera",
+      "section": "Qué Pasa",
+      "author": "Cristina Pérez",
+      "date": "2025-02-05",
+      "type": "coverage",
+      "language": "es",
+      "url": "https://www.latercera.com/que-pasa/noticia/estas-son-las-comunas-donde-los-ninos-tienen-hasta-20-veces-mas-riesgo-de-muerte-segun-su-peso-al-nacer/P5446GPOHVH3RPV652CS7MF3RA/",
+      "accessNote": "may require registration or subscription",
+      "relatedPublication": "llorcajana2025birthweight",
+      "relatedUrls": [],
+      "excerpt": "National coverage of our study of birth weight in Chile and its regions between 1990 and 2021, which identified the municipalities with the lowest average birth weight and discussed what drives regional differences."
+    }
+  ],
+  "projects": [],
+  "skills": [
+    {
+      "name": "Research methods",
+      "keywords": ["IPCC emissions accounting", "LMDI decomposition"]
+    },
+    {
+      "name": "Data and analysis",
+      "keywords": ["R", "Python", "Quarto", "Grist"]
+    },
+    {
+      "name": "Research workflow",
+      "keywords": ["Zotero", "Git", "LaTeX"]
+    },
+    {
+      "name": "Web development",
+      "keywords": ["WordPress", "PHP", "Vue.js", "Nuxt.js"]
+    }
+  ]
+}

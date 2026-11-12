@@ -1,4 +1,5 @@
 ---
+published: false # disabled until there is content; remove this line to re-enable
 permalink: /terms/
 title: "Terms and Privacy Policy"
 modified: 2016-06-06

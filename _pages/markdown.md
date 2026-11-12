@@ -1,4 +1,5 @@
 ---
+published: false # disabled until there is content; remove this line to re-enable
 permalink: /markdown/
 title: "Markdown"
 author_profile: true
