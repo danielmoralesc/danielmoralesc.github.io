@@ -690,21 +690,6 @@
   ],
   "presentations": [
     {
-      "id": "seha2027",
-      "title": "Water supply and its impact on the energy–emissions nexus in the Chilean copper mining industry (1903–2024)",
-      "originalTitle": null,
-      "languageCode": "en",
-      "event": "Congress of the Spanish Society of Agrarian History (SEHA), session “Lo rural en la industria, la industria en lo rural”",
-      "eventUrl": "https://congreso2027.seha.info/",
-      "location": "Granada, ES",
-      "date": "2027-06",
-      "endDate": null,
-      "type": "conference",
-      "status": "upcoming",
-      "relatedPublication": null,
-      "note": "Tentative title"
-    },
-    {
       "id": "esshc2027",
       "title": "The impact of Chilean copper mining on greenhouse gas emissions in the long term (1840–2024)",
       "originalTitle": null,
@@ -718,6 +703,21 @@
       "status": "upcoming",
       "relatedPublication": null,
       "note": null
+    },
+    {
+      "id": "seha2027",
+      "title": "Water supply and its impact on the energy–emissions nexus in the Chilean copper mining industry (1903–2024)",
+      "originalTitle": null,
+      "languageCode": "en",
+      "event": "Congress of the Spanish Society of Agrarian History (SEHA), session “Lo rural en la industria, la industria en lo rural”",
+      "eventUrl": "https://congreso2027.seha.info/",
+      "location": "Granada, ES",
+      "date": "2027-06",
+      "endDate": null,
+      "type": "conference",
+      "status": "upcoming",
+      "relatedPublication": null,
+      "note": "Tentative title"
     },
     {
       "id": "aeee2026",
