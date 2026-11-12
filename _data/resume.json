@@ -36,7 +36,8 @@
           "Mining",
           "Energy transitions",
           "Decomposition analysis"
-        ]
+        ],
+        "emoji": "🏭"
       },
       {
         "title": "Living standards and well-being",
@@ -47,7 +48,8 @@
           "Nutrition",
           "Sanitation and mortality",
           "Regional inequality"
-        ]
+        ],
+        "emoji": "👥"
       }
     ],
     "researchInterests": [
@@ -924,5 +926,15 @@
         "Quarto"
       ]
     }
-  ]
+  ],
+  "webDevelopment": {
+    "summary": "Before and alongside research, I design and build websites for academic associations, conferences and research projects.",
+    "keywords": [
+      "WordPress",
+      "PHP",
+      "Jekyll",
+      "Docker",
+      "Vue.js"
+    ]
+  }
 }

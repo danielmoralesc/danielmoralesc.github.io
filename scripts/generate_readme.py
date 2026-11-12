@@ -28,31 +28,20 @@ from urllib.parse import quote
 
 # Interface labels (the profile README is written in English).
 LABELS = {
-    "about": "About me",
-    "interests": "Research interests",
-    "current": "Current position",
-    "supervisors": "PhD supervisors",
-    "stack": "Skills and tools",
-    "publications": "Publications",
-    "year": "Year",
-    "forthcoming": "forthcoming",
-    "publication": "Publication",
-    "link": "Link",
-    "projects": "Research projects",
-    "years": "Years",
-    "project": "Project",
-    "role": "Role",
-    "funding_col": "Funding",
-    "career": "Career",
-    "education": "Education",
-    "thesis": "Thesis",
-    "funding": "Grants and funding",
-    "present": "present",
-    "since": "since",
+    "lines": "What I work on",
+    "now": "Now",
+    "selected": "Selected publications",
+    "all_pubs": "All publications",
+    "phd": "PhD candidate",
+    "toolbox": "Toolbox",
+    "methods": "Methods",
+    "web": "Also on the web",
+    "full_cv": "Full CV",
+    "talks": "Talks",
     "email": "Email",
     "website": "Website",
     "et_al": "et al.",
-    "footer": "Generated automatically from [resume.json]({url}) · last updated {date}",
+    "footer": "Generated automatically from resume.json · last updated {date}",
 }
 
 # Brand metadata: lower-case name -> (Simple Icons slug or None, hex colour).
@@ -65,7 +54,7 @@ BRANDS = {
     "github": ("github", "181717"),
     "linkedin": (None, "0A66C2"),
     "email": (None, "555555"),
-    "website": (None, "555555"),
+    "website": (None, "8E1F2F"),
     "r": ("r", "276DC3"),
     "python": ("python", "3776AB"),
     "quarto": ("quarto", "39729E"),
@@ -77,6 +66,9 @@ BRANDS = {
     "php": ("php", "777BB4"),
     "vue.js": ("vuedotjs", "4FC08D"),
     "nuxt.js": ("nuxt", "00DC82"),
+    "jekyll": ("jekyll", "CC0000"),
+    "docker": ("docker", "2496ED"),
+    "grist": (None, "16B378"),
 }
 DEFAULT_COLOUR = "555555"
 DOI_COLOUR = "1F6FEB"
@@ -160,9 +152,6 @@ def validate(data: object) -> list[str]:
 # Markdown helpers
 # --------------------------------------------------------------------------- #
 
-def cell(text: str) -> str:
-    """Make text safe inside a Markdown table cell."""
-    return str(text).replace("\n", " ").replace("|", "\\|")
 
 
 def md_link(text: str, url: str) -> str:
@@ -190,8 +179,8 @@ def shield_escape(text: str) -> str:
     return quote(str(text).replace("-", "--").replace("_", "__"), safe="")
 
 
-def badge_url(label: str, colour: str, logo: str | None) -> str:
-    url = f"https://img.shields.io/badge/{shield_escape(label)}-{colour}?style=flat-square"
+def badge_url(label: str, colour: str, logo: str | None, style: str = "flat-square") -> str:
+    url = f"https://img.shields.io/badge/{shield_escape(label)}-{colour}?style={style}"
     if logo:
         url += f"&logo={logo}&logoColor={logo_colour(colour)}"
     return url
@@ -201,10 +190,10 @@ def brand(name: str) -> tuple[str | None, str]:
     return BRANDS.get(name.strip().lower(), (None, DEFAULT_COLOUR))
 
 
-def html_badge(label: str, link: str) -> str:
+def html_badge(label: str, link: str, style: str = "flat-square") -> str:
     logo, colour = brand(label)
     return (f'<a href="{html.escape(link)}"><img alt="{html.escape(label)}" '
-            f'src="{html.escape(badge_url(label, colour, logo))}"></a>')
+            f'src="{html.escape(badge_url(label, colour, logo, style))}"></a>')
 
 
 def md_badge(label: str) -> str:
@@ -212,12 +201,6 @@ def md_badge(label: str) -> str:
     return f"![{label}]({badge_url(label, colour, logo)})"
 
 
-def year_range(start: str | None, end: str | None) -> str:
-    s = str(start)[:4] if start else ""
-    e = str(end)[:4] if end else LABELS["present"]
-    if not s:
-        return e
-    return s if s == e else f"{s}–{e}"
 
 
 # --------------------------------------------------------------------------- #
@@ -240,194 +223,156 @@ def format_authors(authors: list[dict]) -> str:
     return ", ".join(fmt(a) for a in shown) + f" *{LABELS['et_al']}*"
 
 
-def format_venue(venue: dict | None) -> str:
-    if not venue or not venue.get("name"):
-        return ""
-    out = f"*{venue['name']}*"
-    if venue.get("volume"):
-        out += f" {venue['volume']}"
-        if venue.get("issue"):
-            out += f"({venue['issue']})"
-    if venue.get("pages"):
-        out += f", {str(venue['pages']).replace('-', '–')}"
-    elif venue.get("articleNumber"):
-        out += f", {venue['articleNumber']}"
-    return out
 
 
 def section_header(data: dict) -> str:
     basics = data["basics"]
+    current = [a for a in data.get("affiliations") or [] if a.get("endDate") is None]
+    where = " · ".join(dict.fromkeys(short_org(a) for a in current))
     lines = [f'<h1 align="center">{html.escape(basics["name"])}</h1>', ""]
-    intro = []
-    if basics.get("label"):
-        intro.append(f"<strong>{html.escape(basics['label'])}</strong>")
+    tagline = f"{LABELS['phd']} · {where}" if where else ""
+    if tagline:
+        lines += ['<p align="center">', f"  <em>{html.escape(tagline)}</em>", "</p>", ""]
     if basics.get("headline"):
-        intro.append(html.escape(basics["headline"]))
-    if intro:
-        lines += ['<p align="center">', "  " + "<br>\n  ".join(intro), "</p>", ""]
+        lines += ['<p align="center">', f"  {html.escape(basics['headline'])}", "</p>", ""]
 
-    badges = [html_badge(p["network"], p["url"]) for p in basics.get("profiles") or [] if p.get("url")]
+    big = "for-the-badge"
+    badges = []
     if basics.get("website"):
-        badges.append(html_badge(LABELS["website"], basics["website"]))
+        badges.append(html_badge(LABELS["website"], basics["website"], big))
+    badges += [html_badge(p["network"], p["url"], big) for p in basics.get("profiles") or []
+               if p.get("url") and p["network"].lower() != "github"]
     if basics.get("email"):
-        badges.append(html_badge(LABELS["email"], "mailto:" + basics["email"]))
+        badges.append(html_badge(LABELS["email"], "mailto:" + basics["email"], big))
     if badges:
         lines += ['<p align="center">', *("  " + b for b in badges), "</p>"]
     return "\n".join(lines)
 
 
-def section_about(data: dict) -> str:
-    basics = data["basics"]
-    if not basics.get("summary") and not basics.get("researchInterests"):
+def short_org(affiliation: dict) -> str:
+    """'Institute for ... (INARBE)' -> 'INARBE'; otherwise the organisation name."""
+    m = re.search(r"\(([^)]+)\)\s*$", affiliation["organization"])
+    return m.group(1) if m else affiliation["organization"]
+
+
+def section_lines(data: dict) -> str:
+    lines_data = data["basics"].get("researchLines") or []
+    if not lines_data:
         return ""
-    parts = [f"## {LABELS['about']}"]
-    if basics.get("summary"):
-        parts.append(basics["summary"])
-    if basics.get("researchInterests"):
-        parts.append(f"**{LABELS['interests']}:** " + " · ".join(basics["researchInterests"]))
-    return "\n\n".join(parts)
+    width = f"{100 // len(lines_data)}%"
+    cells = []
+    for line in lines_data:
+        emoji = f"{line['emoji']} " if line.get("emoji") else ""
+        tags = " ".join(f"<code>{html.escape(k)}</code>" for k in line.get("keywords") or [])
+        body = [f'<td width="{width}" valign="top">', "",
+                f"### {emoji}{line['title']}", "", line.get("description", "")]
+        if tags:
+            body += ["", tags]
+        body += ["", "</td>"]
+        cells.append("\n".join(body))
+    return "\n".join([f"## {LABELS['lines']}", "", "<table>", "<tr>", *cells, "</tr>", "</table>"])
 
 
-def section_current(data: dict) -> str:
-    current = [a for a in data.get("affiliations") or [] if a.get("endDate") is None]
-    if not current:
+def month_year(date: str | None) -> str:
+    if not date or len(str(date)) < 7:
+        return str(date or "")[:4]
+    year, month = str(date)[:4], int(str(date)[5:7])
+    return f"{calendar.month_abbr[month]} {year}"
+
+
+def section_now(data: dict) -> str:
+    items = []
+    for e in data.get("education") or []:
+        thesis = e.get("thesis") or {}
+        if e.get("endDate") is None and (thesis.get("title") or thesis.get("topic")):
+            supervisors = " and ".join(thesis.get("advisors") or [])
+            sup = f" (supervised by {supervisors})" if supervisors else ""
+            items.append(f"🎓 **PhD thesis** at the {e['institution']}{sup}: "
+                         f"*{thesis.get('title') or thesis.get('topic')}*")
+    for pub in data.get("publications") or []:
+        if pub.get("status") == "forthcoming":
+            url = doi_url(pub["doi"]) if pub.get("doi") else pub.get("url")
+            title = pub.get("originalTitle") or pub["title"]
+            title = md_link(title, url) if url else f"*{title}*"
+            when = month_year(f"{pub['year']}-{pub['month']:02d}") if isinstance(pub.get("month"), int) else str(pub["year"])
+            items.append(f"📄 **Forthcoming** in *{pub['venue']['name']}* ({when}): {title}")
+    talks = [t for t in data.get("presentations") or [] if t.get("status") == "upcoming"]
+    if talks:
+        parts = [f"{short_event(t)}, {t['location'].split(',')[0]} ({month_year(t.get('date'))})" for t in talks]
+        items.append("🎤 **Upcoming talks:** " + " · ".join(parts))
+    if not items:
         return ""
-    lines = [f"## {LABELS['current']}", ""]
-    for a in current:
-        org = md_link(a["organization"], a["url"]) if a.get("url") else a["organization"]
-        dept = f", {a['department']}" if a.get("department") else ""
-        since = f" ({LABELS['since']} {str(a['startDate'])[:4]})" if a.get("startDate") else ""
-        lines.append(f"- **{a['role']}** · {org}{dept}{since}")
-        if a.get("description"):
-            lines.append(f"  <br>{a['description']}")
-    supervisors = data["basics"].get("supervisors") or []
-    if supervisors:
-        names = " and ".join(s["name"] for s in supervisors)
-        lines += ["", f"{LABELS['supervisors']}: {names}."]
-    return "\n".join(lines)
+    return "\n".join([f"## {LABELS['now']}", "", *(f"- {i}" for i in items)])
 
 
-def section_stack(data: dict) -> str:
-    skills = data.get("skills") or []
-    if not skills:
-        return ""
-    lines = [f"## {LABELS['stack']}", ""]
-    for group in skills:
-        badges = " ".join(md_badge(k) for k in group.get("keywords") or [])
-        lines.append(f"**{group['name']}**  ")
-        lines.append(badges)
-        lines.append("")
-    return "\n".join(lines).rstrip()
+def short_event(talk: dict) -> str:
+    """Acronym in brackets if the event has one (e.g. 'ESSHC'), otherwise the event name."""
+    m = re.search(r"\(([A-Z][A-Za-z]{2,})\)", talk.get("event", ""))
+    return m.group(1) if m else talk.get("event", "")
 
 
-def section_publications(data: dict) -> str:
-    pubs = data.get("publications") or []
+def section_selected(data: dict) -> str:
+    # Forthcoming work is already listed under "Now".
+    pubs = [p for p in data.get("publications") or [] if p.get("featured") and p.get("status") != "forthcoming"]
     if not pubs:
         return ""
-    lines = [
-        f"## {LABELS['publications']}",
-        "",
-        f"| {LABELS['year']} | {LABELS['publication']} | {LABELS['link']} |",
-        "|:---:|---|:---:|",
-    ]
+    lines = [f"## {LABELS['selected']}", ""]
     for pub in pubs:
-        # Original-language title first; English translation in brackets when it differs.
         title = pub.get("originalTitle") or pub["title"]
-        translation = pub["title"] if pub.get("originalTitle") and pub["title"] != pub["originalTitle"] else None
-        if pub.get("doi"):
-            url = doi_url(pub["doi"])
-        else:
-            url = pub.get("url")
-        title_md = md_link(title, url) if url else title
-        if translation:
-            title_md += f" [{translation}]"
-        details = [title_md, format_authors(pub["authors"])]
-        venue = format_venue(pub.get("venue"))
-        if venue:
-            details.append(venue)
-        link = ""
-        if pub.get("doi"):
-            link = f"[![DOI]({badge_url('DOI', DOI_COLOUR, None)})](<{doi_url(pub['doi'])}>)"
-        year = pub["year"]
-        if pub.get("status") == "forthcoming":
-            month = pub.get("month")
-            when = f" ({calendar.month_abbr[month]})" if isinstance(month, int) and 1 <= month <= 12 else ""
-            year = f"{pub['year']}<br>*{LABELS['forthcoming']}{when}*"
-        lines.append(f"| {year} | {cell('<br>'.join(details))} | {link} |")
+        url = doi_url(pub["doi"]) if pub.get("doi") else pub.get("url")
+        title_md = f"**{md_link(title, url)}**" if url else f"**{title}**"
+        year = str(pub["year"])
+        venue = f"*{pub['venue']['name']}*" if (pub.get("venue") or {}).get("name") else ""
+        meta = " · ".join(x for x in (format_authors(pub["authors"]), venue, year) if x)
+        lines.append(f"- {title_md}  \n  {meta}")
+    site = data["basics"].get("website")
+    if site:
+        lines += ["", f"→ {md_link(LABELS['all_pubs'], site.rstrip('/') + '/publications/')}"]
     return "\n".join(lines)
 
 
-def section_projects(data: dict) -> str:
-    projects = data.get("researchProjects") or []
-    if not projects:
+def section_toolbox(data: dict) -> str:
+    skills = data.get("skills") or []
+    tools = [k for g in skills if g.get("name") != "Research methods" for k in g.get("keywords") or []]
+    methods = [k for g in skills if g.get("name") == "Research methods" for k in g.get("keywords") or []]
+    if not tools and not methods:
         return ""
-    lines = [
-        f"## {LABELS['projects']}",
-        "",
-        f"| {LABELS['years']} | {LABELS['project']} | {LABELS['role']} | {LABELS['funding_col']} |",
-        "|:---:|---|---|---|",
-    ]
-    for p in projects:
-        funding = " ".join(x for x in (p.get("programme"), p.get("code") if p.get("title") else None) if x)
-        funder = p.get("funder") or p.get("institution")
-        if funder:
-            funding = f"{funding} · {funder}" if funding else funder
-        lines.append(
-            f"| {year_range(p.get('startDate'), p.get('endDate'))} "
-            f"| {cell(p.get('title') or p.get('code') or '')} "
-            f"| {cell(p.get('role') or '')} "
-            f"| {cell(funding)} |"
-        )
+    lines = [f"## {LABELS['toolbox']}", ""]
+    if tools:
+        lines.append(" ".join(md_badge(k) for k in tools))
+    if methods:
+        lines += ["", f"**{LABELS['methods']}:** " + " · ".join(methods)]
     return "\n".join(lines)
 
 
-def section_career(data: dict) -> str:
-    items = data.get("affiliations") or []
-    if not items:
+def section_web(data: dict) -> str:
+    web = data.get("webDevelopment") or {}
+    if not web.get("summary"):
         return ""
-    lines = [f"## {LABELS['career']}", ""]
-    for a in items:
-        dept = f", {a['department']}" if a.get("department") else ""
-        lines.append(f"- **{a['role']}**, {a['organization']}{dept} — {year_range(a.get('startDate'), a.get('endDate'))}")
-    return "\n".join(lines)
-
-
-def section_education(data: dict) -> str:
-    items = data.get("education") or []
-    if not items:
-        return ""
-    lines = [f"## {LABELS['education']}", ""]
-    for e in items:
-        lines.append(f"- **{e['degree']}**, {e['institution']} — {year_range(e.get('startDate'), e.get('endDate'))}")
-        thesis = e.get("thesis") or {}
-        topic = thesis.get("title") or thesis.get("topic")
-        if topic:
-            lines.append(f"  <br>{LABELS['thesis']}: *{topic}*")
-    return "\n".join(lines)
-
-
-def section_funding(data: dict) -> str:
-    items = data.get("funding") or []
-    if not items:
-        return ""
-    lines = [f"## {LABELS['funding']}", ""]
-    for f in items:
-        number = f" ({f['grantNumber']})" if f.get("grantNumber") else ""
-        lines.append(f"- **{f['title']}**{number}, {f['funder']} — {year_range(f.get('startDate'), f.get('endDate'))}")
+    lines = [f"## {LABELS['web']}", "", web["summary"]]
+    if web.get("keywords"):
+        lines += ["", " ".join(md_badge(k) for k in web["keywords"])]
     return "\n".join(lines)
 
 
 def section_footer(data: dict) -> str:
     meta = data["meta"]
-    url = meta.get("canonicalUrl") or "resume.json"
-    return "---\n\n<sub>" + LABELS["footer"].format(url=url, date=meta["lastModified"]) + "</sub>"
+    site = (data["basics"].get("website") or "").rstrip("/")
+    # Inside an HTML block GitHub does not parse Markdown, so links must be <a> tags.
+    def a(text: str, url: str) -> str:
+        return f'<a href="{html.escape(url)}">{html.escape(text)}</a>'
+    links = []
+    if site:
+        links += [a(LABELS["full_cv"], site + "/cv/"), a(LABELS["talks"], site + "/talks/")]
+    links.append(a("resume.json", meta.get("canonicalUrl") or "resume.json"))
+    return ("---\n\n<p align=\"center\"><sub>" + " · ".join(links) + "<br>"
+            + LABELS["footer"].format(date=meta["lastModified"]) + "</sub></p>")
 
 
 def render(data: dict) -> str:
     sections = (
-        section_header, section_about, section_current, section_stack,
-        section_publications, section_projects, section_career,
-        section_education, section_funding, section_footer,
+        section_header, section_lines, section_now, section_selected,
+        section_toolbox, section_web, section_footer,
     )
     body = "\n\n".join(s for s in (fn(data) for fn in sections) if s)
     return "<!-- Generated by scripts/generate_readme.py from resume.json. Do not edit by hand. -->\n\n" + body + "\n"
