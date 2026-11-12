@@ -123,3 +123,11 @@ h1, h2, h3, .page__title {
 .cv-skill-keyword {
   background-color: var(--global-tint-color);
 }
+
+/* Sidebar portrait: the photo is a 5:6 portrait (same file as the home hero);
+   crop it to a circle centred on the face instead of stretching it into an oval. */
+.author__avatar img {
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: 50% 30%;
+}

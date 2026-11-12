@@ -23,7 +23,7 @@ repository               : "danielmoralesc/danielmoralesc.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.png"
+  avatar           : "profile-daniel.jpg"
   name             : "Daniel Morales-Campos"
   pronouns         : # example: "she/her"  
   bio              : # empty: the sidebar shows basics.headline from _data/resume.json
