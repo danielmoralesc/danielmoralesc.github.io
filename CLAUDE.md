@@ -65,6 +65,7 @@ Convenciones:
 - `researchProjects[]`: `code, programme, funder, title, role, startDate, endDate, institution`.
 - `basics.citationName`, `basics.supervisors[]` (sin emails).
 - `basics.about[]` (12 nov 2026): párrafos en primera persona; el primero va en el hero de la portada (bajo el nombre) y el resto en la sección About. `basics.researchLines[]`: `{title, icon, description, keywords}`. Se retiró `basics.researchPeriod` y su banda 1840–2024 al ampliar el enfoque más allá de la minería.
+- `_data/pending.json` (12 nov 2026): entradas **sin confirmar** (p. ej. ponencias en propuestas de sesión no aceptadas). La web no lo usa y no sale en `/resume.json`; al confirmarse, la entrada vuelve a su sección de `resume.json` sin `pendingReason`. Ojo: el repo es público, así que el archivo es visible en GitHub.
 - README del perfil (12 nov 2026): versión breve, no el CV completo. Secciones: cabecera con badges grandes, *What I work on* (`researchLines[]`, con `emoji` solo para el README), *Now* (tesis en curso, `publications[]` con `status: forthcoming`, `presentations[]` con `status: upcoming`), *Selected publications* (`featured: true`, sin las forthcoming), *Toolbox* (`skills`), *Also on the web* (clave `webDevelopment {summary, keywords}`, que la web Jekyll no muestra) y pie con enlaces al CV.
 - `press[]` y `teaching[]` ya en uso; `placeholder: true` marca datos de ejemplo (el generador del README se niega a publicar con ellos).
 
