@@ -11,7 +11,7 @@
     "familyName": "Morales Campos",
     "citationName": "Morales-Campos, D.",
     "label": "Economic historian · PhD candidate",
-    "headline": "Economic historian studying how Chile's modernisation reshaped living standards, energy use and the environment, from the nineteenth century to today.",
+    "headline": "Economic historian studying how resource-based economies grow, and what that growth costs in living standards, energy use and the environment, from the nineteenth century to today.",
     "email": "daniel.morales@unavarra.es",
     "website": "https://danielmoralesc.github.io",
     "location": {
@@ -19,9 +19,9 @@
       "region": "Navarre",
       "countryCode": "ES"
     },
-    "summary": "I am an economic historian working on how Chile's modernisation since the nineteenth century has shaped living standards, energy use and the environment. My doctoral research at the Public University of Navarre reconstructs Chile's long-run greenhouse gas emissions by economic activity, extending the national inventory back to the mid-nineteenth century, beginning with the mining sector. Alongside it, I have spent a decade working on the history of living standards in Chile (height, nutrition, sanitation, mortality and migration), mostly with Manuel Llorca-Jaña. My master's research on how Chilean households adopted modern cooking fuels between 1940 and 1970 brings both lines together.",
+    "summary": "I am an economic historian working on how resource-based economies grow, and what that growth costs in living standards, energy use and the environment since the nineteenth century, mainly through the case of Chile. My doctoral research at the Public University of Navarre reconstructs Chile's long-run greenhouse gas emissions by economic activity, extending the national inventory back to the mid-nineteenth century, beginning with the mining sector. Alongside it, I have spent a decade working on the history of living standards in Chile (height, nutrition, sanitation, mortality and migration), mostly with Manuel Llorca-Jaña. My master's research on how Chilean households adopted modern cooking fuels between 1940 and 1970 brings both lines together.",
     "about": [
-      "I am an economic historian based in Pamplona, where I am a PhD candidate at the Public University of Navarre. I am interested in the long run: how an economy built on natural resources became richer, and what that cost its people and its environment along the way.",
+      "I am an economic historian based in Pamplona, where I am a PhD candidate at the Public University of Navarre. I am interested in the long run: how economies built on natural resources grow richer, and what that costs their people and their environment along the way.",
       "My doctoral research, supervised by Cristián Ducoing and Mar Rubio-Varas, asks why developing economies find it so hard to decouple growth from emissions. I am reconstructing Chile's greenhouse gas emissions by economic activity from the mid-nineteenth century onwards, beginning with mining, the sector that has defined Chile's place in the world economy.",
       "Before moving to Pamplona, I trained as an economist at the University of Santiago, Chile, where economic history, and an early collaboration on the history of energy transitions in Chile, pulled me towards historical questions. Since 2018 I have worked on projects led by Manuel Llorca-Jaña on the history of living standards in Chile: height, diet, sanitation, mortality and, more recently, migration.",
       "The two lines meet at home, quite literally: my master's research, now forthcoming as an article, looks at how Chilean households switched to modern stoves and fuels between 1940 and 1970. Between 2022 and 2024 I also taught international political economy and microeconomics at the University of Santiago."
@@ -30,7 +30,7 @@
       {
         "title": "Energy and the environment",
         "icon": "fas fa-industry",
-        "description": "Long-run greenhouse gas emissions of Chile's economic activities, energy transitions and the environmental footprint of a resource-based economy, from the 1840s to today.",
+        "description": "Long-run greenhouse gas emissions of economic activities in developing, resource-rich economies, with Chile as the main case: energy transitions and the environmental footprint of growth from the 1840s to today.",
         "keywords": [
           "GHG emissions",
           "Mining",
@@ -41,7 +41,7 @@
       {
         "title": "Living standards and well-being",
         "icon": "fas fa-people-group",
-        "description": "How Chileans' height, diet, health and living conditions changed over the twentieth century, and how unevenly across regions.",
+        "description": "How height, diet, health and living conditions changed with modernisation, and how unevenly across regions, with evidence from Chile.",
         "keywords": [
           "Anthropometrics",
           "Nutrition",
@@ -105,7 +105,7 @@
       "location": "Pamplona, ES",
       "url": "https://www.unavarra.es",
       "ror": null,
-      "description": "Doctoral research on the long-term greenhouse gas emissions of Chilean copper mining."
+      "description": "Doctoral research on the long-run greenhouse gas emissions of economic activities, starting with mining."
     },
     {
       "organization": "University of Santiago, Chile",
