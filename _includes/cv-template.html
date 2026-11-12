@@ -90,8 +90,8 @@
         {% if item.honors %}<div class="cv-item-summary">{{ item.honors }}</div>{% endif %}
         {% if item.thesis %}
         <div class="cv-item-summary">
-          <strong>Thesis:</strong> {% if item.thesis.title %}<em>{{ item.thesis.title }}</em>{% else %}{{ item.thesis.topic }}{% endif %}{% if item.thesis.doi %} (<a href="https://doi.org/{{ item.thesis.doi }}">doi:{{ item.thesis.doi }}</a>){% endif %}
-          {% if item.thesis.advisors.size > 0 %}<br><strong>Supervisors:</strong> {{ item.thesis.advisors | join: " and " }}{% endif %}
+          <strong>Thesis:</strong> {% if item.thesis.originalTitle %}<em>{{ item.thesis.originalTitle }}</em>{% if item.thesis.title %} <span class="cv-title-translation">[{{ item.thesis.title }}]</span>{% endif %}{% elsif item.thesis.title %}<em>{{ item.thesis.title }}</em>{% else %}{{ item.thesis.topic }}{% endif %}{% if item.thesis.doi %} (<a href="https://doi.org/{{ item.thesis.doi }}">doi:{{ item.thesis.doi }}</a>){% endif %}
+          {% if item.thesis.advisors.size > 0 %}<br><strong>Supervisor{% if item.thesis.advisors.size > 1 %}s{% endif %}:</strong> {{ item.thesis.advisors | join: " and " }}{% endif %}
         </div>
         {% endif %}
       </li>
@@ -186,11 +186,7 @@
   <!-- Teaching -->
   <div class="cv-section">
     <h2 id="teaching">Teaching</h2>
-    <ul class="cv-list">
-      {% for item in cv.teaching %}
-      {% include resume/teaching-item.html item=item %}
-      {% endfor %}
-    </ul>
+    {% include resume/teaching-groups.html items=cv.teaching %}
   </div>
   {% endif %}
 

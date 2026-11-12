@@ -13,7 +13,18 @@ author_profile: true
 <p class="wordwrap">You can also find my articles on <a href="{{ profile.url }}">my Google Scholar profile</a>.</p>
 {% endif %}{% endfor %}
 
-{% assign groups = resume.publications | group_by: "year" %}
+{% assign forthcoming = resume.publications | where: "status", "forthcoming" %}
+{% if forthcoming.size > 0 %}
+<h2 class="resume-year">Forthcoming</h2>
+<ul class="cv-publications resume-pubs">
+  {% for pub in forthcoming %}
+  <li class="cv-publication" id="{{ pub.id }}">{% include resume/publication.html pub=pub %}</li>
+  {% endfor %}
+</ul>
+{% endif %}
+
+{% assign published = resume.publications | where_exp: "p", "p.status != 'forthcoming'" %}
+{% assign groups = published | group_by: "year" %}
 {% for group in groups %}
 <h2 class="resume-year">{{ group.name }}</h2>
 <ul class="cv-publications resume-pubs">

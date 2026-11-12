@@ -97,7 +97,7 @@
     {% for pub in r.publications limit: 3 %}
     {% assign display_title = pub.originalTitle | default: pub.title %}
     <article class="home-pub">
-      <p class="home-pub__year">{{ pub.year }}</p>
+      <p class="home-pub__year">{% if pub.status == "forthcoming" %}Forthcoming{% else %}{{ pub.year }}{% endif %}</p>
       <div>
         <h3 class="home-pub__title">{% if pub.doi %}<a href="https://doi.org/{{ pub.doi }}">{{ display_title }}</a>{% elsif pub.url %}<a href="{{ pub.url }}">{{ display_title }}</a>{% else %}{{ display_title }}{% endif %}</h3>
         {% if pub.originalTitle and pub.title != pub.originalTitle %}<p class="home-pub__translation">[{{ pub.title }}]</p>{% endif %}
@@ -126,11 +126,12 @@
     </section>
     {% endif %}
 
-    {% if r.teaching.size > 0 %}
+    {% assign lecturing = r.teaching | where: "type", "lecturer" %}
+    {% if lecturing.size > 0 %}
     <section aria-labelledby="home-teaching-title">
       <h2 id="home-teaching-title">Teaching</h2>
       <ul class="home-list">
-        {% for item in r.teaching limit: 3 %}
+        {% for item in lecturing limit: 3 %}
         <li>
           <p class="home-list__source"><i class="fas fa-chalkboard-user" aria-hidden="true"></i><span class="home-list__outlet">{{ item.institution }}</span><span>{% include cv-date-range.html start=item.startDate end=item.endDate %}</span></p>
           <p class="home-list__title">{{ item.course }}{% if item.placeholder %} <span class="cv-placeholder">Example</span>{% endif %}</p>

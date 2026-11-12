@@ -12,7 +12,7 @@ site_theme               : "rosso" # Rosso Roma (#8E1F2F) + copper; custom theme
 title                    : "Daniel Morales-Campos"
 title_separator          : "-"
 name                     : &name "Daniel Morales-Campos"
-description              : &description "Economic historian working on mining, energy and greenhouse gas emissions in Chile, 1840–2024."
+description              : &description "Economic historian studying how Chile's modernisation reshaped living standards, energy use and the environment, from the nineteenth century to today."
 url                      : https://danielmoralesc.github.io # The base hostname & protocol for your site e.g. "https://[your GitHub username].github.io",
                                                            # or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
@@ -27,8 +27,8 @@ author:
   name             : "Daniel Morales-Campos"
   pronouns         : # example: "she/her"  
   bio              : # empty: the sidebar shows basics.headline from _data/resume.json
-  location         : "Pamplona, Navarra, Spain"
-  employer         : "Public University of Navarra (UPNA)"
+  location         : "Pamplona, Navarre, Spain"
+  employer         : "Public University of Navarre (UPNA)"
   uri              : # URL
   email            : "daniel.morales@unavarra.es" 
 

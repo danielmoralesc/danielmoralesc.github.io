@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "Daniel Morales Campos"
+title: "Daniel Morales-Campos"
 layout: home
 author_profile: false
 redirect_from:

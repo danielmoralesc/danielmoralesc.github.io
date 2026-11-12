@@ -34,6 +34,7 @@ LABELS = {
     "stack": "Skills and tools",
     "publications": "Publications",
     "year": "Year",
+    "forthcoming": "forthcoming",
     "publication": "Publication",
     "link": "Link",
     "projects": "Research projects",
@@ -346,7 +347,8 @@ def section_publications(data: dict) -> str:
         link = ""
         if pub.get("doi"):
             link = f"[![DOI]({badge_url('DOI', DOI_COLOUR, None)})](<{doi_url(pub['doi'])}>)"
-        lines.append(f"| {pub['year']} | {cell('<br>'.join(details))} | {link} |")
+        year = f"{pub['year']}<br>*{LABELS['forthcoming']}*" if pub.get("status") == "forthcoming" else pub["year"]
+        lines.append(f"| {year} | {cell('<br>'.join(details))} | {link} |")
     return "\n".join(lines)
 
 

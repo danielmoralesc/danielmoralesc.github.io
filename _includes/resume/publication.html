@@ -1,7 +1,7 @@
 {%- comment -%} One publication from resume.json as a citation. Usage: {% include resume/publication.html pub=pub %} {%- endcomment -%}
 {%- assign pub = include.pub -%}
 {% for author in pub.authors %}{% unless forloop.first %}{% if forloop.last %} &amp; {% else %}, {% endif %}{% endunless %}{% if author.isSelf %}<strong>{{ author.name }}</strong>{% else %}{{ author.name }}{% endif %}{% endfor %}
-({{ pub.year }}).
+({% if pub.status == "forthcoming" %}forthcoming{% else %}{{ pub.year }}{% endif %}).
 {%- assign display_title = pub.originalTitle | default: pub.title -%}
 {% if pub.doi %}<a href="https://doi.org/{{ pub.doi }}">{{ display_title }}</a>{% elsif pub.url %}<a href="{{ pub.url }}">{{ display_title }}</a>{% else %}{{ display_title }}{% endif %}{% if pub.originalTitle and pub.title != pub.originalTitle %} <span class="cv-title-translation">[{{ pub.title }}]</span>{% endif %}.
 {% if pub.venue.name %}<em>{{ pub.venue.name }}</em>{% if pub.venue.volume %}, <em>{{ pub.venue.volume }}</em>{% endif %}{% if pub.venue.issue %}({{ pub.venue.issue }}){% endif %}{% if pub.venue.pages %}, {{ pub.venue.pages | replace: "-", "–" }}{% elsif pub.venue.articleNumber %}, {{ pub.venue.articleNumber }}{% endif %}.{% endif %}

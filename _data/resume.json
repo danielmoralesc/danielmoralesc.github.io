@@ -1,21 +1,21 @@
 {
   "meta": {
     "schemaVersion": "1.0.0",
-    "lastModified": "2026-09-15",
+    "lastModified": "2026-11-12",
     "language": "en-GB",
     "canonicalUrl": "https://danielmoralesc.github.io/resume.json"
   },
   "basics": {
-    "name": "Daniel Morales Campos",
+    "name": "Daniel Morales-Campos",
     "givenNames": "Daniel",
     "familyName": "Morales Campos",
     "citationName": "Morales-Campos, D.",
-    "label": "PhD Candidate in Economic History",
-    "headline": "Economic historian working on mining, energy and greenhouse gas emissions in Chile, 1840–2024.",
+    "label": "Economic historian · PhD candidate",
+    "headline": "Economic historian studying how Chile's modernisation reshaped living standards, energy use and the environment, from the nineteenth century to today.",
     "researchPeriod": {
       "start": 1840,
       "end": 2024,
-      "label": "Thesis period: the long-run emissions of Chilean copper mining"
+      "label": "Research span: two centuries of Chilean modernisation"
     },
     "email": "daniel.morales@unavarra.es",
     "website": "https://danielmoralesc.github.io",
@@ -24,23 +24,28 @@
       "region": "Navarre",
       "countryCode": "ES"
     },
-    "summary": "PhD candidate in Economics, Business and Law at the Public University of Navarre. My doctoral research examines the long-term impact of Chilean copper mining on greenhouse gas emissions (1840–2024). Before that, I worked for a decade as a research assistant on projects on the anthropometric history, living standards, nutrition and public health of Chile.",
+    "summary": "I am an economic historian working on how Chile's modernisation since the nineteenth century has shaped living standards, energy use and the environment. My doctoral research at the Public University of Navarre reconstructs Chile's long-run greenhouse gas emissions by economic activity, extending the national inventory back to the mid-nineteenth century, beginning with the mining sector. Alongside it, I have spent a decade working on the history of living standards in Chile (height, nutrition, sanitation, mortality and migration), mostly with Manuel Llorca-Jaña. My master's research on how Chilean households adopted modern cooking fuels between 1940 and 1970 brings both lines together.",
     "researchInterests": [
-      "Economic history",
-      "Mining and energy history",
-      "Greenhouse gas emissions",
+      "Economic history of Chile and Latin America",
+      "Environmental and energy history",
+      "Long-run greenhouse gas emissions",
+      "Energy transitions",
+      "Living standards and well-being",
       "Anthropometric history",
-      "Living standards and inequality",
-      "History of Chile"
+      "Nutrition and public health",
+      "Historical statistics"
     ],
     "supervisors": [
-      { "name": "Cristián Ducoing Ruiz", "affiliation": "Public University of Navarre" },
-      { "name": "Mar Rubio-Varas", "affiliation": "Public University of Navarre" }
+      {
+        "name": "Cristián Ducoing Ruiz",
+        "affiliation": "Public University of Navarre"
+      },
+      {
+        "name": "Mar Rubio-Varas",
+        "affiliation": "Public University of Navarre"
+      }
     ],
-    "languages": [
-      { "language": "Spanish", "fluency": "Native" },
-      { "language": "English", "fluency": null }
-    ],
+    "languages": [],
     "profiles": [
       {
         "network": "ORCID",
@@ -88,6 +93,18 @@
       "url": "https://www.usach.cl",
       "ror": null,
       "description": null
+    },
+    {
+      "organization": "Economic Commission for Latin America and the Caribbean (ECLAC/CEPAL)",
+      "department": "Financing for Development Division",
+      "role": "Intern",
+      "type": "internship",
+      "startDate": "2015-07",
+      "endDate": "2015-10",
+      "location": "Santiago, CL",
+      "url": "https://www.cepal.org",
+      "ror": null,
+      "description": null
     }
   ],
   "education": [
@@ -102,9 +119,12 @@
       "url": "https://www.unavarra.es",
       "ror": null,
       "thesis": {
-        "title": null,
-        "topic": "Long-term impact of Chilean copper mining on greenhouse gas emissions, 1840–2024",
-        "advisors": ["Cristián Ducoing Ruiz", "Mar Rubio-Varas"],
+        "title": "Economic modernisation and its impact on sustainable development: the case of Chile",
+        "topic": "Long-run greenhouse gas emissions of Chile's economic activities, from the mid-nineteenth century to the present",
+        "advisors": [
+          "Cristián Ducoing Ruiz",
+          "Mar Rubio-Varas"
+        ],
         "doi": null
       }
     },
@@ -118,11 +138,20 @@
       "honors": null,
       "url": "https://www.usach.cl",
       "ror": null,
-      "thesis": null
+      "thesis": {
+        "title": "The household energy transition in Chile and its impact on the choice of cooking fuels (1940–1970)",
+        "originalTitle": "Transición energética en los hogares chilenos y su impacto en la elección de combustibles para cocinar (1940-1970)",
+        "topic": null,
+        "advisors": [
+          "Claudio Robles Ortiz"
+        ],
+        "doi": null,
+        "relatedPublication": "moralescampos2027cooking"
+      }
     },
     {
       "institution": "University of Santiago, Chile",
-      "degree": "Bachelor in Economics",
+      "degree": "Commercial Engineering (Economics) and Licentiate in Economic Sciences",
       "studyType": "BA",
       "area": "Economics",
       "startDate": "2011",
@@ -135,14 +164,65 @@
   ],
   "publications": [
     {
+      "id": "moralescampos2027cooking",
+      "type": "journal-article",
+      "status": "forthcoming",
+      "title": "The adoption of the modern kitchen and the household energy transition in Chile during the developmentalist era, c.1940-1970",
+      "originalTitle": "Incorporación de la cocina moderna y transición energética en los hogares chilenos durante el desarrollismo, c.1940-1970",
+      "authors": [
+        {
+          "name": "Morales-Campos, D.",
+          "orcid": "0000-0002-5581-8542",
+          "isSelf": true
+        },
+        {
+          "name": "Llorca-Jaña, M."
+        }
+      ],
+      "venue": {
+        "name": "Apuntes. Revista de Ciencias Sociales",
+        "type": "journal",
+        "volume": null,
+        "issue": null,
+        "pages": null,
+        "articleNumber": null,
+        "publisher": "Universidad del Pacífico",
+        "issn": null
+      },
+      "year": 2027,
+      "month": 7,
+      "doi": null,
+      "url": null,
+      "openAccess": null,
+      "featured": true,
+      "languageCode": "es",
+      "keywords": [
+        "energy transition",
+        "households",
+        "cooking fuels",
+        "developmentalism",
+        "Chile"
+      ],
+      "abstract": null,
+      "orcidSync": false
+    },
+    {
       "id": "llorcajana2025suicide",
       "type": "journal-article",
       "title": "Regional inequality in the historical evolution of suicide in Chile, 1921-2021",
       "originalTitle": "Desigualdad regional de la evolución histórica del suicidio en Chile, 1921-2021",
       "authors": [
-        { "name": "Llorca-Jaña, M." },
-        { "name": "Rivas, J." },
-        { "name": "Morales-Campos, D.", "orcid": "0000-0002-5581-8542", "isSelf": true }
+        {
+          "name": "Llorca-Jaña, M."
+        },
+        {
+          "name": "Rivas, J."
+        },
+        {
+          "name": "Morales-Campos, D.",
+          "orcid": "0000-0002-5581-8542",
+          "isSelf": true
+        }
       ],
       "venue": {
         "name": "Historia 396",
@@ -161,7 +241,11 @@
       "openAccess": null,
       "featured": true,
       "languageCode": "es",
-      "keywords": ["suicide", "regional inequality", "Chile"],
+      "keywords": [
+        "suicide",
+        "regional inequality",
+        "Chile"
+      ],
       "abstract": null
     },
     {
@@ -170,8 +254,14 @@
       "title": "Secular trends in birth weight in Chile and its regions between 1990 and 2021",
       "originalTitle": null,
       "authors": [
-        { "name": "Llorca-Jaña, M." },
-        { "name": "Morales-Campos, D.", "orcid": "0000-0002-5581-8542", "isSelf": true }
+        {
+          "name": "Llorca-Jaña, M."
+        },
+        {
+          "name": "Morales-Campos, D.",
+          "orcid": "0000-0002-5581-8542",
+          "isSelf": true
+        }
       ],
       "venue": {
         "name": "American Journal of Human Biology",
@@ -190,7 +280,11 @@
       "openAccess": null,
       "featured": true,
       "languageCode": "en",
-      "keywords": ["birth weight", "anthropometric history", "Chile"],
+      "keywords": [
+        "birth weight",
+        "anthropometric history",
+        "Chile"
+      ],
       "abstract": null
     },
     {
@@ -199,9 +293,17 @@
       "title": "Poor Sanitation, Deaths, and Regional Inequality in Twentieth-Century Chile",
       "originalTitle": null,
       "authors": [
-        { "name": "Llorca-Jaña, M." },
-        { "name": "Rivas, J." },
-        { "name": "Morales-Campos, D.", "orcid": "0000-0002-5581-8542", "isSelf": true }
+        {
+          "name": "Llorca-Jaña, M."
+        },
+        {
+          "name": "Rivas, J."
+        },
+        {
+          "name": "Morales-Campos, D.",
+          "orcid": "0000-0002-5581-8542",
+          "isSelf": true
+        }
       ],
       "venue": {
         "name": "The Journal of Interdisciplinary History",
@@ -220,7 +322,12 @@
       "openAccess": null,
       "featured": true,
       "languageCode": "en",
-      "keywords": ["sanitation", "mortality", "regional inequality", "Chile"],
+      "keywords": [
+        "sanitation",
+        "mortality",
+        "regional inequality",
+        "Chile"
+      ],
       "abstract": null
     },
     {
@@ -229,9 +336,17 @@
       "title": "Main trends in Chile's suicide rates: 1921-2020",
       "originalTitle": null,
       "authors": [
-        { "name": "Llorca-Jaña, M." },
-        { "name": "Rivas, J." },
-        { "name": "Morales-Campos, D.", "orcid": "0000-0002-5581-8542", "isSelf": true }
+        {
+          "name": "Llorca-Jaña, M."
+        },
+        {
+          "name": "Rivas, J."
+        },
+        {
+          "name": "Morales-Campos, D.",
+          "orcid": "0000-0002-5581-8542",
+          "isSelf": true
+        }
       ],
       "venue": {
         "name": "Macrohistoria",
@@ -250,7 +365,10 @@
       "openAccess": null,
       "featured": false,
       "languageCode": null,
-      "keywords": ["suicide", "Chile"],
+      "keywords": [
+        "suicide",
+        "Chile"
+      ],
       "abstract": null
     },
     {
@@ -259,10 +377,20 @@
       "title": "The Timing and Nature of the Nutrition Transition in Chile, 1930-2019",
       "originalTitle": null,
       "authors": [
-        { "name": "Llorca-Jaña, M." },
-        { "name": "Nazer, R." },
-        { "name": "Rivas, J." },
-        { "name": "Morales-Campos, D.", "orcid": "0000-0002-5581-8542", "isSelf": true }
+        {
+          "name": "Llorca-Jaña, M."
+        },
+        {
+          "name": "Nazer, R."
+        },
+        {
+          "name": "Rivas, J."
+        },
+        {
+          "name": "Morales-Campos, D.",
+          "orcid": "0000-0002-5581-8542",
+          "isSelf": true
+        }
       ],
       "venue": {
         "name": "Revista RIVAR",
@@ -281,7 +409,10 @@
       "openAccess": null,
       "featured": false,
       "languageCode": null,
-      "keywords": ["nutrition transition", "Chile"],
+      "keywords": [
+        "nutrition transition",
+        "Chile"
+      ],
       "abstract": null
     },
     {
@@ -290,10 +421,20 @@
       "title": "Milk and meat consumption and production in Chile, c. 1930-2017: A history of a successful nutrition transition",
       "originalTitle": null,
       "authors": [
-        { "name": "Llorca-Jaña, M." },
-        { "name": "Nazer, R." },
-        { "name": "Morales-Campos, D.", "orcid": "0000-0002-5581-8542", "isSelf": true },
-        { "name": "Navarrete-Montalvo, J." }
+        {
+          "name": "Llorca-Jaña, M."
+        },
+        {
+          "name": "Nazer, R."
+        },
+        {
+          "name": "Morales-Campos, D.",
+          "orcid": "0000-0002-5581-8542",
+          "isSelf": true
+        },
+        {
+          "name": "Navarrete-Montalvo, J."
+        }
       ],
       "venue": {
         "name": "Historia Agraria. Revista de Agricultura e Historia Rural",
@@ -312,7 +453,11 @@
       "openAccess": null,
       "featured": false,
       "languageCode": null,
-      "keywords": ["nutrition transition", "agrarian history", "Chile"],
+      "keywords": [
+        "nutrition transition",
+        "agrarian history",
+        "Chile"
+      ],
       "abstract": null
     }
   ],
@@ -324,8 +469,8 @@
       "title": "New Anthropometric History of Chile",
       "role": "Research Assistant",
       "startDate": "2024",
-      "endDate": "2025",
-      "institution": null
+      "endDate": null,
+      "institution": "Adolfo Ibáñez University"
     },
     {
       "code": "1210144",
@@ -333,15 +478,15 @@
       "funder": "ANID",
       "title": "The Impact of the Expansion of Aqueduct and Sewerage Infrastructure on Chile's Living Standards, c.1900s–2020",
       "role": "Research Assistant",
-      "startDate": "2021",
-      "endDate": "2023",
+      "startDate": "2021-09",
+      "endDate": "2024-03",
       "institution": null
     },
     {
       "code": "AIFAL2103",
       "programme": null,
       "funder": "Adolfo Ibáñez University",
-      "title": null,
+      "title": "Adolfo Ibáñez University research project AIFAL2103",
       "role": "Research Assistant",
       "startDate": "2021",
       "endDate": "2021",
@@ -401,56 +546,116 @@
   ],
   "teaching": [
     {
-      "course": "Economic History of Chile",
-      "courseCode": "EXAMPLE-101",
-      "programme": "Bachelor in Political Science",
-      "institution": "University of Santiago, Chile",
-      "level": "undergraduate",
-      "role": "Adjunct Lecturer",
-      "startDate": "2024-03",
-      "endDate": "2024-07",
-      "description": "Survey of Chile's long-run economic development from independence to the present, with a focus on natural-resource cycles.",
-      "url": null,
-      "placeholder": true
-    },
-    {
-      "course": "Political Economy of Natural Resources",
-      "courseCode": "EXAMPLE-214",
-      "programme": "Bachelor in Political Science",
-      "institution": "University of Santiago, Chile",
-      "level": "undergraduate",
-      "role": "Adjunct Lecturer",
-      "startDate": "2023-08",
-      "endDate": "2023-12",
-      "description": "Mining, rents and the state in Latin America: nitrate, copper and lithium in comparative perspective.",
-      "url": null,
-      "placeholder": true
-    },
-    {
-      "course": "Introduction to Economics",
-      "courseCode": "EXAMPLE-110",
-      "programme": "Bachelor in Public Administration",
-      "institution": "University of Santiago, Chile",
-      "level": "undergraduate",
-      "role": "Adjunct Lecturer",
-      "startDate": "2023-03",
-      "endDate": "2023-07",
-      "description": "Core concepts of micro- and macroeconomics for social science students.",
-      "url": null,
-      "placeholder": true
-    },
-    {
-      "course": "Quantitative Methods for the Social Sciences",
-      "courseCode": "EXAMPLE-230",
-      "programme": "Bachelor in Political Science",
+      "course": "International Political Economy II",
+      "type": "lecturer",
+      "courseCode": null,
+      "programme": "Department of Political Studies",
       "institution": "University of Santiago, Chile",
       "level": "undergraduate",
       "role": "Adjunct Lecturer",
       "startDate": "2022-08",
-      "endDate": "2022-12",
-      "description": "Descriptive statistics, regression and data visualisation with R.",
-      "url": null,
-      "placeholder": true
+      "endDate": "2024-12",
+      "semesters": 3,
+      "description": null,
+      "url": null
+    },
+    {
+      "course": "Probability",
+      "type": "lecturer",
+      "courseCode": null,
+      "programme": "Department of Political Studies",
+      "institution": "University of Santiago, Chile",
+      "level": "undergraduate",
+      "role": "Adjunct Lecturer",
+      "startDate": "2024-08",
+      "endDate": "2024-12",
+      "semesters": 1,
+      "description": null,
+      "url": null
+    },
+    {
+      "course": "International Political Economy I",
+      "type": "lecturer",
+      "courseCode": null,
+      "programme": "Department of Political Studies",
+      "institution": "University of Santiago, Chile",
+      "level": "undergraduate",
+      "role": "Adjunct Lecturer",
+      "startDate": "2023-03",
+      "endDate": "2024-07",
+      "semesters": 2,
+      "description": null,
+      "url": null
+    },
+    {
+      "course": "Microeconomics",
+      "type": "lecturer",
+      "courseCode": null,
+      "programme": "Department of Political Studies",
+      "institution": "University of Santiago, Chile",
+      "level": "undergraduate",
+      "role": "Adjunct Lecturer",
+      "startDate": "2023-03",
+      "endDate": "2024-07",
+      "semesters": 2,
+      "description": null,
+      "url": null
+    },
+    {
+      "course": "Economic History of Chile",
+      "type": "assistant",
+      "courseCode": null,
+      "programme": "Faculty of Economics and Business",
+      "institution": "University of Chile",
+      "level": "undergraduate",
+      "role": "Teaching Assistant",
+      "startDate": "2021-01",
+      "endDate": "2021-07",
+      "semesters": null,
+      "description": "Several sections, including one as coordinating teaching assistant.",
+      "url": null
+    },
+    {
+      "course": "The Development of Capitalism in Global and Historical Perspective",
+      "type": "assistant",
+      "courseCode": null,
+      "programme": null,
+      "institution": "Adolfo Ibáñez University",
+      "level": "undergraduate",
+      "role": "Teaching Assistant",
+      "startDate": "2018-08",
+      "endDate": "2018-12",
+      "semesters": null,
+      "description": null,
+      "url": null
+    },
+    {
+      "course": "World Economic History",
+      "type": "assistant",
+      "courseCode": null,
+      "programme": "Faculty of Administration and Economics",
+      "institution": "University of Santiago, Chile",
+      "level": "undergraduate",
+      "role": "Teaching Assistant",
+      "startDate": "2017-08",
+      "endDate": "2017-12",
+      "semesters": null,
+      "description": null,
+      "url": null
+    },
+    {
+      "course": "History of Economic Thought",
+      "type": "assistant",
+      "courseCode": null,
+      "programme": "Faculty of Administration and Economics",
+      "institution": "University of Santiago, Chile",
+      "level": "undergraduate",
+      "role": "Teaching Assistant",
+      "startDate": "2016-08",
+      "endDate": "2016-12",
+      "semesters": null,
+      "description": null,
+      "url": null
     }
   ],
   "presentations": [],
@@ -507,19 +712,29 @@
   "skills": [
     {
       "name": "Research methods",
-      "keywords": ["IPCC emissions accounting", "LMDI decomposition"]
+      "keywords": [
+        "Historical GHG inventories (IPCC methodology)",
+        "Index decomposition analysis (LMDI)",
+        "Time-series and panel econometrics",
+        "Historical statistics from primary sources"
+      ]
     },
     {
       "name": "Data and analysis",
-      "keywords": ["R", "Python", "Quarto", "Grist"]
+      "keywords": [
+        "R",
+        "Python",
+        "Git",
+        "Grist"
+      ]
     },
     {
       "name": "Research workflow",
-      "keywords": ["Zotero", "Git", "LaTeX"]
-    },
-    {
-      "name": "Web development",
-      "keywords": ["WordPress", "PHP", "Vue.js", "Nuxt.js"]
+      "keywords": [
+        "Zotero",
+        "Obsidian",
+        "Quarto"
+      ]
     }
   ]
 }
