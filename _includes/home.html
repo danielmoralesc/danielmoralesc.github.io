@@ -37,11 +37,13 @@
 
 <section class="home-now" aria-label="Current work">
   <div class="home-wrap home-now__grid">
-    {% for a in r.affiliations %}{% unless a.endDate %}
+    {% assign memberships = r.affiliations | where: "type", "membership" %}
+    {% for a in r.affiliations %}{% unless a.endDate or a.type == "membership" %}
     <div class="home-now__item">
       <p class="home-now__kicker"><i class="fas fa-building-columns" aria-hidden="true"></i>Current position</p>
       <p class="home-now__title">{{ a.role }}</p>
-      <p class="home-now__meta">{{ a.organization }}{% if a.startDate %}, since {{ a.startDate | slice: 0, 4 }}{% endif %}</p>
+      <p class="home-now__meta">{% if a.department %}{{ a.department }}, {% endif %}{{ a.organization }}{% if a.startDate %}, since {{ a.startDate | slice: 0, 4 }}{% endif %}</p>
+      {% for m in memberships %}{% unless m.endDate %}<p class="home-now__meta">Member of {% if m.url %}<a href="{{ m.url }}">{{ m.organization }}</a>{% else %}{{ m.organization }}{% endif %}</p>{% endunless %}{% endfor %}
     </div>
     {% endunless %}{% endfor %}
 
