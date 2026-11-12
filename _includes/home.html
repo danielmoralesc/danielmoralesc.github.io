@@ -122,7 +122,9 @@
     {% for pub in r.publications limit: 3 %}
     {% assign display_title = pub.originalTitle | default: pub.title %}
     <article class="home-pub">
-      <p class="home-pub__year">{{ pub.year }}{% if pub.status == "forthcoming" %}<span class="home-pub__status">forthcoming</span>{% endif %}</p>
+      {%- assign pub_date = nil -%}
+      {%- if pub.status == "forthcoming" and pub.month -%}{%- capture pub_date -%}{{ pub.year }}-{{ pub.month | prepend: "0" | slice: -2, 2 }}-01{%- endcapture -%}{%- endif %}
+      <p class="home-pub__year">{{ pub.year }}{% if pub.status == "forthcoming" %}<span class="home-pub__status">forthcoming{% if pub_date %}, {{ pub_date | date: "%b" }}{% endif %}</span>{% endif %}</p>
       <div>
         <h3 class="home-pub__title">{% if pub.doi %}<a href="https://doi.org/{{ pub.doi }}">{{ display_title }}</a>{% elsif pub.url %}<a href="{{ pub.url }}">{{ display_title }}</a>{% else %}{{ display_title }}{% endif %}</h3>
         {% if pub.originalTitle and pub.title != pub.originalTitle %}<p class="home-pub__translation">[{{ pub.title }}]</p>{% endif %}

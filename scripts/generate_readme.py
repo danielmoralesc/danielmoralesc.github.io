@@ -17,6 +17,7 @@ Exit codes:
 from __future__ import annotations
 
 import argparse
+import calendar
 import html
 import json
 import os
@@ -347,7 +348,11 @@ def section_publications(data: dict) -> str:
         link = ""
         if pub.get("doi"):
             link = f"[![DOI]({badge_url('DOI', DOI_COLOUR, None)})](<{doi_url(pub['doi'])}>)"
-        year = f"{pub['year']}<br>*{LABELS['forthcoming']}*" if pub.get("status") == "forthcoming" else pub["year"]
+        year = pub["year"]
+        if pub.get("status") == "forthcoming":
+            month = pub.get("month")
+            when = f" ({calendar.month_abbr[month]})" if isinstance(month, int) and 1 <= month <= 12 else ""
+            year = f"{pub['year']}<br>*{LABELS['forthcoming']}{when}*"
         lines.append(f"| {year} | {cell('<br>'.join(details))} | {link} |")
     return "\n".join(lines)
 
