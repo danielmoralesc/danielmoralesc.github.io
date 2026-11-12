@@ -242,8 +242,10 @@
 .cv-label { font-size: 1.2rem; font-weight: bold; margin: 0 0 0.25rem; }
 .cv-headline { margin: 0 0 0.75rem; }
 .cv-profiles { flex-wrap: wrap; }
-.cv-item-header { flex-wrap: wrap; gap: 0 1rem; }
-.cv-item-date { white-space: nowrap; }
+/* Title wraps on the left; the date keeps its own column on the right, never drops below the title */
+.cv-item-header { flex-wrap: nowrap; align-items: baseline; gap: 0 1.25rem; }
+.cv-item-title { flex: 1 1 auto; min-width: 0; }
+.cv-item-date { flex: 0 0 auto; margin-left: auto; text-align: right; white-space: nowrap; }
 .cv-skill-keyword { border: 1px solid var(--global-border-color); }
 .cv-skill-keywords { margin-top: 0.5rem; }
 .cv-publications { padding-left: 1.5rem; }
