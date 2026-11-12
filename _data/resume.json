@@ -705,6 +705,36 @@
       "note": "Tentative title"
     },
     {
+      "id": "esshc2027",
+      "title": "The impact of Chilean copper mining on greenhouse gas emissions in the long term (1840–2024)",
+      "originalTitle": null,
+      "languageCode": "en",
+      "event": "European Social Science History Conference (ESSHC), panel “Economic History and Environmental Sustainability”",
+      "eventUrl": "https://esshc.iisg.amsterdam/",
+      "location": "Lyon, FR",
+      "date": "2027-04-21",
+      "endDate": "2027-04-24",
+      "type": "conference",
+      "status": "upcoming",
+      "relatedPublication": null,
+      "note": null
+    },
+    {
+      "id": "aeee2026",
+      "title": "The impact of Chilean copper mining on greenhouse gas emissions in the long term (1840–2024)",
+      "originalTitle": null,
+      "languageCode": "en",
+      "event": "21st Annual Conference of the Spanish Association for Energy Economics (AEEE), University of Navarra",
+      "eventUrl": "https://aeee.es/xxi_congreso_aeee/",
+      "location": "Pamplona, ES",
+      "date": "2026-05-27",
+      "endDate": "2026-05-29",
+      "type": "conference",
+      "status": null,
+      "relatedPublication": null,
+      "note": null
+    },
+    {
       "id": "jiffji2026",
       "title": "The impact of economic activities on greenhouse gas emissions in Chile (1844–2023): the mining sector",
       "originalTitle": null,
