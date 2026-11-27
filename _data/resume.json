@@ -1,7 +1,7 @@
 {
   "meta": {
     "schemaVersion": "1.0.0",
-    "lastModified": "2026-11-13",
+    "lastModified": "2026-11-27",
     "language": "en-GB",
     "canonicalUrl": "https://danielmoralesc.github.io/resume.json"
   },
@@ -580,6 +580,15 @@
       "role": "Beneficiary",
       "startDate": "2025",
       "endDate": "2028",
+      "url": null
+    },
+    {
+      "title": "INARBE Excellence Grant for a research stay at the University of Granada",
+      "funder": "Institute for Advanced Research in Business and Economics (INARBE), Public University of Navarre",
+      "grantNumber": null,
+      "role": "Beneficiary",
+      "startDate": "2026",
+      "endDate": "2026",
       "url": null
     }
   ],
